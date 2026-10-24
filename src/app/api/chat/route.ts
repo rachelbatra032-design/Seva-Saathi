@@ -5,6 +5,8 @@ import { detectIndicLanguage } from "@/lib/script";
 import { sarvamConfigured, translate, SarvamError } from "@/lib/sarvam/client";
 import { mockFromEnglish, mockToEnglish } from "@/lib/sarvam/mock";
 import { clientKey, rateLimit } from "@/lib/rate-limit";
+import { sanitizeUserQuery } from "@/lib/safety/sanitize";
+import { hashClientKey, logApiEvent } from "@/lib/safety/logging";
 import type { AssistantReply } from "@/lib/assistant/types";
 
 export const maxDuration = 60;
@@ -23,9 +25,10 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: "Request body must be JSON." }, { status: 400 });
   }
 
-  const message = typeof body.message === "string" ? body.message.trim() : "";
-  if (!message) return NextResponse.json({ error: "Please type or speak a question." }, { status: 400 });
-  if (message.length > 600) return NextResponse.json({ error: "Please keep your question under 600 characters." }, { status: 400 });
+  const raw = typeof body.message === "string" ? body.message : "";
+  const cleaned = sanitizeUserQuery(raw);
+  if (!cleaned.ok) return NextResponse.json({ error: "Please type or speak a question." }, { status: 400 });
+  const message = cleaned.text;
 
   const uiLang = typeof body.lang === "string" && isSupportedLanguage(body.lang) ? body.lang : "en-IN";
   const spoken = typeof body.inputLang === "string" && isSupportedLanguage(body.inputLang) ? body.inputLang : null;
@@ -103,6 +106,12 @@ export async function POST(req: Request) {
     }
   }
   reply.language = reply.translation?.provider === "sarvam" || reply.translation?.provider === "mock" ? uiLang : "en-IN";
+
+  logApiEvent({
+    route: "/api/chat",
+    outcome: reply.intent === "refusal" ? "refused" : "ok",
+    clientHash: hashClientKey(clientKey(req)),
+  });
 
   return NextResponse.json({
     reply,
