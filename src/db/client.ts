@@ -20,6 +20,11 @@ export function getDb() {
   return db;
 }
 
+export function getSql() {
+  getDb();
+  return sql;
+}
+
 export async function closeDb() {
   if (sql) {
     await sql.end({ timeout: 5 });

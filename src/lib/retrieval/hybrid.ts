@@ -1,12 +1,9 @@
-import { eq } from "drizzle-orm";
 import { getDb } from "@/db/client";
-import * as schema from "@/db/schema";
 import { plan as filePlan } from "@/lib/assistant/planner";
 import type { Passage, Plan } from "@/lib/assistant/types";
-import { cosineSimilarity, embedText } from "@/lib/ingest/embed";
+import { embedText } from "@/lib/ingest/embed";
 import { isOfficialUrl } from "@/lib/official-hosts";
-
-const MAX_DB_CHUNKS = 300;
+import { searchChunksByCosine } from "@/lib/retrieval/vector-search";
 
 export async function planWithRetrieval(query: string): Promise<Plan> {
   const base = filePlan(query);
@@ -14,35 +11,15 @@ export async function planWithRetrieval(query: string): Promise<Plan> {
   if (!db) return base;
 
   try {
-    const chunkRows = await db
-      .select({
-        text: schema.chunks.text,
-        embedding: schema.chunks.embedding,
-        url: schema.sources.url,
-        agency: schema.sources.agency,
-      })
-      .from(schema.chunks)
-      .innerJoin(schema.sources, eq(schema.chunks.sourceId, schema.sources.id))
-      .limit(MAX_DB_CHUNKS);
-
-    if (chunkRows.length === 0) return base;
-
     const { vector } = await embedText(query);
-    const scored = chunkRows
-      .map((r) => ({
-        r,
-        score: r.embedding?.length ? cosineSimilarity(vector, r.embedding) : 0,
-      }))
-      .filter((x) => x.score > 0.05)
-      .sort((a, b) => b.score - a.score)
-      .slice(0, 6);
+    const scored = (await searchChunksByCosine(vector, 6)).filter((s) => s.score > 0.05);
 
     if (scored.length === 0) return base;
 
     const extra: Passage[] = [];
     for (let i = 0; i < scored.length; i++) {
       const s = scored[i];
-      const url = s.r.url;
+      const url = s.url;
       if (!isOfficialUrl(url)) continue;
       let publisher = "gov.in";
       try {
@@ -53,12 +30,12 @@ export async function planWithRetrieval(query: string): Promise<Plan> {
       extra.push({
         id: `db-chunk:${i}`,
         type: "service",
-        title: s.r.agency ?? "Official update",
-        text: s.r.text,
+        title: s.agency ?? "Official update",
+        text: s.text,
         score: s.score * 10,
         sources: [
           {
-            title: s.r.agency ?? "Official source",
+            title: s.agency ?? "Official source",
             url,
             publisher,
             snapshot: true,

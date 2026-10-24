@@ -15,6 +15,8 @@
     "data:refresh": "node scripts/refresh-data.mjs",
     "db:up": "docker compose up -d db",
     "db:migrate": "node scripts/db-migrate.mjs",
+    "db:migrate:down": "node scripts/db-migrate.mjs down",
+    "test:eval-db": "tsx --conditions react-server --test tests/eval-db.test.ts",
     "db:seed": "tsx scripts/db-seed.ts",
     "ingest": "tsx scripts/ingest-worker.ts",
     "test:eval": "tsx --conditions react-server --test tests/eval.test.ts"

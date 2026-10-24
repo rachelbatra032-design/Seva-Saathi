@@ -40,7 +40,8 @@ npm run db:up          # Docker: Postgres + pgvector on localhost:5433
 export DATABASE_URL=postgresql://seva:seva_local@127.0.0.1:5433/seva_saathi
 npm run db:migrate
 npm run db:seed        # load services/journeys/link checks from TS + JSON
-npm run ingest         # polite PIB RSS ingest → chunks + mock embeddings
+npm run ingest         # polite PIB RSS ingest → chunks + mock embeddings (robots.txt + per-host limits for INGEST_URLS)
+npm run db:migrate:down # reverse the latest down migration (pgvector → jsonb)
 ```
 
 E2E tests use port **4822** so the preview dev server can stay on **4821**.

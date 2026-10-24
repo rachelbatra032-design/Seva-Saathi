@@ -8,7 +8,7 @@ import { eq } from "drizzle-orm";
 import postgres from "postgres";
 import { drizzle } from "drizzle-orm/postgres-js";
 import * as schema from "../src/db/schema";
-import { chunkText, htmlToSummary, politeFetch } from "../src/lib/ingest/fetch";
+import { chunkText, htmlToSummary, ingestPoliteFetch, politeFetch } from "../src/lib/ingest/fetch";
 import { embedText } from "../src/lib/ingest/embed";
 
 const PIB_RSS = "https://www.pib.gov.in/RssMain.aspx?ModId=6&Lang=1&Regid=3&reg=3";
@@ -74,26 +74,34 @@ async function ingestDocument(sourceId: string, title: string, body: string) {
   return pieces.length;
 }
 
-console.log("Ingest: PIB RSS");
-const feed = await politeFetch(PIB_RSS);
-if (feed.status >= 400) {
-  console.error("PIB fetch failed", feed.status);
-  process.exit(1);
-}
+if (process.env.INGEST_SKIP_PIB !== "1") {
+  console.log("Ingest: PIB RSS");
+  const feed = await politeFetch(PIB_RSS);
+  if (feed.status >= 400) {
+    console.error("PIB fetch failed", feed.status);
+    process.exit(1);
+  }
 
-const feedSourceId = await upsertSource(PIB_RSS, "PIB", "public RSS headline feed", feed.hash);
-const items = parseRssItems(feed.text);
-const summaryBody = items
-  .slice(0, 40)
-  .map((i) => `${i.title}. ${i.description}`.trim())
-  .join("\n");
-const chunksWritten = await ingestDocument(feedSourceId, "PIB RSS headlines", summaryBody || htmlToSummary(feed.text));
-console.log(`PIB: ${items.length} items, ${chunksWritten} chunks`);
+  const feedSourceId = await upsertSource(PIB_RSS, "PIB", "public RSS headline feed", feed.hash);
+  const items = parseRssItems(feed.text);
+  const summaryBody = items
+    .slice(0, 40)
+    .map((i) => `${i.title}. ${i.description}`.trim())
+    .join("\n");
+  const chunksWritten = await ingestDocument(feedSourceId, "PIB RSS headlines", summaryBody || htmlToSummary(feed.text));
+  console.log(`PIB: ${items.length} items, ${chunksWritten} chunks`);
+} else {
+  console.log("Ingest: skipping PIB (INGEST_SKIP_PIB=1)");
+  const fixtureUrl = "https://www.india.gov.in/";
+  const sid = await upsertSource(fixtureUrl, "National Portal", "link + short summary", "fixture");
+  await ingestDocument(sid, "National Portal fixture", "Passport services and government schemes are listed on the National Portal of India.");
+  console.log("Ingest: wrote CI fixture chunk for", fixtureUrl);
+}
 
 const extra = (process.env.INGEST_URLS ?? "").split(",").map((u) => u.trim()).filter(Boolean);
 for (const pageUrl of extra) {
   try {
-    const page = await politeFetch(pageUrl);
+    const page = await ingestPoliteFetch(pageUrl);
     if (page.status >= 400) {
       console.warn("skip", pageUrl, page.status);
       continue;

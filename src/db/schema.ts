@@ -9,6 +9,7 @@ import {
   uuid,
   varchar,
 } from "drizzle-orm/pg-core";
+import { vector384 } from "@/db/vector";
 export const services = pgTable(
   "services",
   {
@@ -87,8 +88,7 @@ export const chunks = pgTable(
     ord: integer("ord").notNull(),
     text: text("text").notNull(),
     contentHash: varchar("content_hash", { length: 64 }).notNull(),
-    /** Stored as real[] until pgvector query path is configured; ingest uses mock embed for search. */
-    embedding: jsonb("embedding").$type<number[]>(),
+    embedding: vector384("embedding"),
   },
   (t) => [index("chunks_source_idx").on(t.sourceId)],
 );
