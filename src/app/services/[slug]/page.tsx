@@ -8,18 +8,19 @@ import { Badge } from "@/components/ui/badge";
 import { OfficialLinkButton } from "@/components/official-link-button";
 import { LinkStatusNote } from "@/components/link-badge";
 import { ServiceCard } from "@/components/service-card";
+import type { SlugPageParams } from "@/types/app-router";
 
 export function generateStaticParams() {
   return allServices.map((s) => ({ slug: s.slug }));
 }
 
-export async function generateMetadata({ params }: PageProps<"/services/[slug]">): Promise<Metadata> {
+export async function generateMetadata({ params }: SlugPageParams): Promise<Metadata> {
   const { slug } = await params;
   const s = getService(slug);
   return s ? { title: s.title, description: s.summary } : { title: "Service not found" };
 }
 
-export default async function ServicePage({ params }: PageProps<"/services/[slug]">) {
+export default async function ServicePage({ params }: SlugPageParams) {
   const { slug } = await params;
   const service = getService(slug);
   if (!service) notFound();

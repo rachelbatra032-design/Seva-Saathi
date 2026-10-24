@@ -5,6 +5,7 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { UnofficialBanner } from "@/components/unofficial-banner";
 import { LanguageProvider } from "@/components/language-provider";
+import type { RootLayoutProps } from "@/types/app-router";
 
 const notoSans = Noto_Sans({ variable: "--font-sans-latin", subsets: ["latin"], display: "swap" });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
@@ -30,7 +31,7 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html
       lang="en"

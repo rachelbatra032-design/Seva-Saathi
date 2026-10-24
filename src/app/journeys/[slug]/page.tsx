@@ -7,18 +7,19 @@ import { JourneyPlanner } from "@/components/journey-planner";
 import { JourneyStepTracker } from "@/components/journey-step-tracker";
 import { DelegationRoadmap } from "@/components/delegation-roadmap";
 import { Breadcrumbs } from "@/components/breadcrumbs";
+import type { SlugPageParams } from "@/types/app-router";
 
 export function generateStaticParams() {
   return journeys.map((j) => ({ slug: j.slug }));
 }
 
-export async function generateMetadata({ params }: PageProps<"/journeys/[slug]">): Promise<Metadata> {
+export async function generateMetadata({ params }: SlugPageParams): Promise<Metadata> {
   const { slug } = await params;
   const j = journeyBySlug[slug];
   return j ? { title: j.title, description: j.tagline } : { title: "Guide not found" };
 }
 
-export default async function JourneyPage({ params }: PageProps<"/journeys/[slug]">) {
+export default async function JourneyPage({ params }: SlugPageParams) {
   const { slug } = await params;
   const journey = journeyBySlug[slug];
   if (!journey) notFound();

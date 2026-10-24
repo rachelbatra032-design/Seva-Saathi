@@ -8,18 +8,19 @@ import { ServiceCard } from "@/components/service-card";
 import { CategoryIcon } from "@/components/category-icon";
 import { Suspense } from "react";
 import { UpdatesList, UpdatesSkeleton } from "@/components/updates-list";
+import type { SlugPageParams } from "@/types/app-router";
 
 export function generateStaticParams() {
   return categories.map((c) => ({ slug: c.slug }));
 }
 
-export async function generateMetadata({ params }: PageProps<"/topics/[slug]">): Promise<Metadata> {
+export async function generateMetadata({ params }: SlugPageParams): Promise<Metadata> {
   const { slug } = await params;
   const c = categoryBySlug[slug];
   return c ? { title: c.name, description: c.description } : { title: "Topic not found" };
 }
 
-export default async function TopicPage({ params }: PageProps<"/topics/[slug]">) {
+export default async function TopicPage({ params }: SlugPageParams) {
   const { slug } = await params;
   const category = categoryBySlug[slug];
   if (!category) notFound();
