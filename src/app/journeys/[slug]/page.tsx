@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { Sparkles } from "lucide-react";
 import { journeyBySlug, journeys } from "@/data/journeys";
 import { JourneyPlanner } from "@/components/journey-planner";
+import { JourneyStepTracker } from "@/components/journey-step-tracker";
 import { DelegationRoadmap } from "@/components/delegation-roadmap";
 
 export function generateStaticParams() {

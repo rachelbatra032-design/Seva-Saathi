@@ -5,6 +5,7 @@ import { useLanguage } from "@/components/language-provider";
 
 const EXAMPLES = [
   "I just got married, how do I change my name?",
+  "We had a baby, what registrations do we need?",
   "I lost my Aadhaar card",
   "Moving to another state",
 ];
@@ -12,11 +13,11 @@ const EXAMPLES = [
 export function HeroForms() {
   const { t } = useLanguage();
   return (
-    <div className="mt-8 max-w-2xl">
-      <form action="/ask" method="get" role="search" aria-label="Ask Seva Saathi" className="rounded-2xl bg-white p-2 shadow-xl ring-1 ring-black/5">
+    <div className="mt-8 max-w-3xl">
+      <form action="/ask" method="get" role="search" aria-label="Ask Seva Saathi" className="rounded-2xl bg-white p-2.5 shadow-xl ring-1 ring-black/5">
         <label htmlFor="hero-ask" className="sr-only">{t.askTitle}</label>
-        <div className="flex items-center gap-2">
-          <Sparkles className="ml-3 size-5 shrink-0 text-saffron" aria-hidden />
+        <div className="flex flex-col gap-2 sm:flex-row sm:items-center">
+          <Sparkles className="ml-1 hidden size-5 shrink-0 text-saffron sm:ml-2 sm:block" aria-hidden />
           <input
             id="hero-ask"
             name="q"
@@ -24,7 +25,7 @@ export function HeroForms() {
             required
             autoComplete="off"
             placeholder={t.askPlaceholder}
-            className="h-12 min-w-0 flex-1 bg-transparent text-base text-foreground outline-none placeholder:text-muted-foreground"
+            className="min-h-14 min-w-0 flex-1 rounded-xl bg-transparent px-3 text-base text-foreground outline-none placeholder:text-muted-foreground sm:min-h-12"
           />
           <a href="/ask" aria-label={t.tapToSpeak} className="grid size-11 shrink-0 place-items-center rounded-xl border border-input text-foreground hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
             <Mic className="size-5" aria-hidden />

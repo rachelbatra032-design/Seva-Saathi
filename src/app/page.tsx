@@ -5,6 +5,7 @@ import { categories } from "@/data/categories";
 import { journeys } from "@/data/journeys";
 import { allServices, categoryCounts, popularServices } from "@/lib/services";
 import { HeroForms } from "@/components/hero-forms";
+import { QuickServicesGrid } from "@/components/quick-services-grid";
 import { ServiceCard } from "@/components/service-card";
 import { CategoryIcon } from "@/components/category-icon";
 import { UpdatesList, UpdatesSkeleton } from "@/components/updates-list";
@@ -16,34 +17,44 @@ export default function HomePage() {
   return (
     <>
       <section className="relative overflow-hidden bg-primary text-primary-foreground">
-        <div aria-hidden className="absolute inset-x-0 top-0 flex h-1.5">
-          <span className="flex-1 bg-saffron" /><span className="flex-1 bg-white" /><span className="flex-1 bg-india-green" />
-        </div>
         <div aria-hidden className="pointer-events-none absolute -right-24 -top-24 size-[28rem] rounded-full border-[28px] border-white/5" />
-        <div aria-hidden className="pointer-events-none absolute -right-8 top-24 size-72 rounded-full border-[18px] border-saffron/10" />
-        <div className="relative mx-auto max-w-6xl px-4 pb-16 pt-14 sm:pt-20">
-          <p className="text-sm font-semibold uppercase tracking-[0.16em] text-saffron">One place for Indian government services</p>
-          <h1 className="mt-3 max-w-3xl text-4xl font-semibold leading-[1.1] sm:text-5xl">
-            Stop chasing between government websites. Start with what happened.
+        <div className="relative mx-auto max-w-6xl px-4 pb-12 pt-12 sm:pt-16">
+          <p className="text-sm font-semibold uppercase tracking-[0.16em] text-saffron-soft">Seva Saathi · unofficial</p>
+          <h1 className="mt-3 max-w-3xl text-3xl font-semibold leading-[1.12] sm:text-4xl md:text-5xl">
+            What do you need from government today?
           </h1>
-          <p className="mt-4 max-w-2xl text-lg text-primary-foreground/85">
-            Seva Saathi gathers {allServices.length} official services and turns life events, like a marriage, a lost document or a move, into one ordered plan with a link to the official site for every step.
+          <p className="mt-3 max-w-2xl text-base text-primary-foreground/85 sm:text-lg">
+            Ask in plain language first. We answer only from official sources, with links—then help you follow a step-by-step plan.
           </p>
           <HeroForms />
-          <dl className="mt-10 flex flex-wrap gap-x-10 gap-y-3 text-sm">
-            <div><dt className="text-primary-foreground/70">Services indexed</dt><dd className="text-2xl font-semibold">{allServices.length}</dd></div>
-            <div><dt className="text-primary-foreground/70">Central programmes</dt><dd className="text-2xl font-semibold">{centralCount}</dd></div>
-            <div><dt className="text-primary-foreground/70">Life-event guides</dt><dd className="text-2xl font-semibold">{journeys.length}</dd></div>
-            <div><dt className="text-primary-foreground/70">Voice languages</dt><dd className="text-2xl font-semibold">22</dd></div>
-          </dl>
         </div>
       </section>
 
-      <section aria-labelledby="journeys" className="mx-auto max-w-6xl px-4 pt-16">
+      <section aria-labelledby="quick-services" className="border-b border-border bg-secondary/60">
+        <div className="mx-auto max-w-6xl px-4 py-8">
+          <div className="flex flex-wrap items-end justify-between gap-2">
+            <div>
+              <h2 id="quick-services" className="text-lg font-semibold text-primary">Most-used services</h2>
+              <p className="text-sm text-muted-foreground">Jump straight to an official portal</p>
+            </div>
+            <Link href="/services" className="text-sm font-medium text-primary underline-offset-4 hover:underline">
+              All {allServices.length} services
+            </Link>
+          </div>
+          <div className="mt-4">
+            <QuickServicesGrid />
+          </div>
+        </div>
+      </section>
+
+      <section aria-labelledby="journeys" className="mx-auto max-w-6xl px-4 pt-14">
         <div className="flex flex-wrap items-end justify-between gap-3">
           <div>
             <p className="text-sm font-semibold uppercase tracking-[0.14em] text-saffron">Life events</p>
-            <h2 id="journeys" className="mt-1 text-3xl font-semibold text-primary">Plans that span many offices</h2>
+            <h2 id="journeys" className="mt-1 text-3xl font-semibold text-primary">One flow, many departments</h2>
+            <p className="mt-1 max-w-2xl text-sm text-muted-foreground">
+              Pick a life event—we bundle the agencies, order the steps, and track your progress like a delivery tracker.
+            </p>
           </div>
           <Link href="/journeys" className="inline-flex items-center gap-1 text-sm font-medium text-primary underline-offset-4 hover:underline">All guides <ArrowRight className="size-4" aria-hidden /></Link>
         </div>
