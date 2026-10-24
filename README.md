@@ -1,6 +1,8 @@
 # Seva Saathi (unofficial)
 
-Repository: [github.com/rachel-batra/seva-saathi](https://github.com/rachel-batra/seva-saathi)
+India's government, made simple. Ask in your language and get cited, step-by-step guidance across every agency. Unofficial and open source.
+
+Repository: [github.com/rachelbatra032-design/Seva-Saathi](https://github.com/rachelbatra032-design/Seva-Saathi)
 
 **Seva Saathi** is an **unofficial**, independent guide to Indian government services. It is **not** affiliated with, endorsed by, or operated by the Government of India or any state government. There are **no government emblems or logos** in this app.
 
@@ -17,7 +19,7 @@ The official national directory is [india.gov.in](https://www.india.gov.in/). Se
 ## Quick start
 
 ```bash
-git clone https://github.com/rachel-batra/seva-saathi.git
+git clone https://github.com/rachelbatra032-design/Seva-Saathi.git
 cd seva-saathi
 npm install
 npm run dev        # http://localhost:4821
