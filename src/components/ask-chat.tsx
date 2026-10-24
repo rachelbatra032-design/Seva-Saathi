@@ -377,9 +377,10 @@ export function AskChat() {
   return (
     <div className="mx-auto flex w-full max-w-3xl flex-col">
       <div className="flex flex-wrap items-center justify-between gap-3 pb-4">
-        <p className="text-sm text-muted-foreground">Answer language</p>
+        <p className="text-sm text-muted-foreground">Answer language ({langName})</p>
         <LanguageSelect />
       </div>
+      <p className="pb-3 text-xs text-muted-foreground">{t.voicePrivacy}</p>
 
       <div className="space-y-6 pb-6" aria-live="polite" aria-busy={busy}>
         {messages.length === 0 && (

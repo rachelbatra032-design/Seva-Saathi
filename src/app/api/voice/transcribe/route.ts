@@ -3,6 +3,7 @@ import { isSupportedLanguage } from "@/lib/languages";
 import { sarvamConfigured, SarvamError, transcribe } from "@/lib/sarvam/client";
 import { mockTranscribe } from "@/lib/sarvam/mock";
 import { clientKey, rateLimit } from "@/lib/rate-limit";
+import { AUDIO_POLICY_HEADERS } from "@/lib/audio-policy";
 
 export const maxDuration = 60;
 const MAX_AUDIO_BYTES = 8 * 1024 * 1024;
@@ -48,7 +49,10 @@ export async function POST(req: Request) {
     if (!result.transcript.trim()) {
       return NextResponse.json({ error: "I could not hear anything in that recording. Please try again closer to the microphone." }, { status: 422 });
     }
-    return NextResponse.json({ transcript: result.transcript, languageCode: result.languageCode, provider: "sarvam" });
+    return NextResponse.json(
+      { transcript: result.transcript, languageCode: result.languageCode, provider: "sarvam" },
+      { headers: AUDIO_POLICY_HEADERS },
+    );
   } catch (err) {
     const status = err instanceof SarvamError ? (err.status === 429 ? 429 : 502) : 500;
     return NextResponse.json({ error: err instanceof Error ? err.message : "Transcription failed" }, { status });

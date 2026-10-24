@@ -4,7 +4,7 @@ import { createContext, useCallback, useContext, useEffect, useMemo, useSyncExte
 import { DEFAULT_LANGUAGE, isSupportedLanguage } from "@/lib/languages";
 import { uiStrings, type UiStrings } from "@/lib/i18n";
 
-const KEY = "indiagov:lang:v1";
+const KEY = "seva-saathi:lang:v1";
 const listeners = new Set<() => void>();
 
 function subscribe(cb: () => void) {
