@@ -32,6 +32,7 @@ We **do not** ship the full USWDS npm package or USWDS sprite assets in v1. We *
 | Pattern | Approach |
 | --- | --- |
 | Editorial hero + large question field | **Re-implemented** (`HeroForms`, home hero); inspired by America.gov, our colours and copy |
+| Use-case cards (life events) | **Re-implemented** (`HomeUseCases`); large editorial cards with visitor-voice prompts |
 | Topic hub cards, explainer columns | **Re-implemented** (`TopicHubCard`, home sections) |
 | Header search + language switcher | **Re-implemented** (`SiteHeader`, `SiteSearch`, `LanguageSelect`) |
 | Footer disclaimer + official source links | **Re-implemented** (`SiteFooter`) |
