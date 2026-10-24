@@ -82,7 +82,7 @@ export function parseRobotsTxt(body: string, userAgent: string): RobotsRules {
     current.lines.push(`${key}:${value}`);
   }
 
-  let picked =
+  const picked =
     blocks.find((b) => b.agents.some((a) => tokenMatches(userAgent, a))) ??
     blocks.find((b) => b.agents.some((a) => a === "*")) ??
     null;

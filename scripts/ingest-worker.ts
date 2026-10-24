@@ -52,7 +52,6 @@ async function upsertSource(sourceUrl: string, agency: string, licence: string, 
 }
 
 async function ingestDocument(sourceId: string, title: string, body: string) {
-  const hash = createHash("sha256").update(body).digest("hex");
   const [doc] = await db
     .insert(schema.documents)
     .values({ sourceId, title, fetchedAt: new Date() })
