@@ -1,0 +1,560 @@
+{
+  "https://aaplesarkar.mahaonline.gov.in/": {
+    "status": "ok",
+    "httpCode": 200,
+    "checkedAt": "2026-10-24T17:26:27.407Z"
+  },
+  "https://abdm.gov.in/": {
+    "status": "blocked",
+    "httpCode": 403,
+    "checkedAt": "2026-10-24T17:26:10.965Z"
+  },
+  "https://agmarknet.gov.in/": {
+    "status": "blocked",
+    "httpCode": 403,
+    "checkedAt": "2026-10-24T17:26:16.481Z"
+  },
+  "https://assam.gov.in/": {
+    "status": "unreachable",
+    "reason": "UND_ERR_CONNECT_TIMEOUT",
+    "checkedAt": "2026-10-24T17:26:40.738Z"
+  },
+  "https://bhashini.gov.in/": {
+    "status": "ok",
+    "httpCode": 200,
+    "checkedAt": "2026-10-24T17:26:26.854Z"
+  },
+  "https://consumerhelpline.gov.in/": {
+    "status": "ok",
+    "httpCode": 200,
+    "checkedAt": "2026-10-24T17:26:24.334Z",
+    "finalUrl": "https://consumerhelpline.gov.in/public/"
+  },
+  "https://crsorgi.gov.in/": {
+    "status": "unreachable",
+    "reason": "UND_ERR_RES_CONTENT_LENGTH_MISMATCH",
+    "checkedAt": "2026-10-24T17:26:08.081Z"
+  },
+  "https://cybercrime.gov.in/": {
+    "status": "unreachable",
+    "reason": "UND_ERR_CONNECT_TIMEOUT",
+    "checkedAt": "2026-10-24T17:26:24.932Z"
+  },
+  "https://dbtbharat.gov.in/": {
+    "status": "ok",
+    "httpCode": 200,
+    "checkedAt": "2026-10-24T17:26:23.530Z"
+  },
+  "https://delhi.gov.in/": {
+    "status": "unreachable",
+    "reason": "UND_ERR_CONNECT_TIMEOUT",
+    "checkedAt": "2026-10-24T17:26:28.559Z"
+  },
+  "https://diksha.gov.in/": {
+    "status": "ok",
+    "httpCode": 200,
+    "checkedAt": "2026-10-24T17:26:12.665Z"
+  },
+  "https://echallan.parivahan.gov.in/": {
+    "status": "unreachable",
+    "reason": "UND_ERR_CONNECT_TIMEOUT",
+    "checkedAt": "2026-10-24T17:26:17.091Z"
+  },
+  "https://edaakhil.nic.in/": {
+    "status": "unreachable",
+    "reason": "ENOTFOUND",
+    "checkedAt": "2026-10-24T17:26:24.552Z"
+  },
+  "https://edistrict.delhigovt.nic.in/": {
+    "status": "unreachable",
+    "reason": "UND_ERR_CONNECT_TIMEOUT",
+    "checkedAt": "2026-10-24T17:26:29.513Z"
+  },
+  "https://edistrict.kerala.gov.in/": {
+    "status": "unreachable",
+    "reason": "UNABLE_TO_VERIFY_LEAF_SIGNATURE",
+    "checkedAt": "2026-10-24T17:26:35.624Z"
+  },
+  "https://edistrict.up.gov.in/": {
+    "status": "unreachable",
+    "reason": "UND_ERR_CONNECT_TIMEOUT",
+    "checkedAt": "2026-10-24T17:26:34.057Z"
+  },
+  "https://egazette.gov.in/": {
+    "status": "unreachable",
+    "reason": "UNABLE_TO_VERIFY_LEAF_SIGNATURE",
+    "checkedAt": "2026-10-24T17:26:41.728Z"
+  },
+  "https://emitra.rajasthan.gov.in/": {
+    "status": "ok",
+    "httpCode": 200,
+    "checkedAt": "2026-10-24T17:26:38.030Z"
+  },
+  "https://enam.gov.in/": {
+    "status": "ok",
+    "httpCode": 200,
+    "checkedAt": "2026-10-24T17:26:15.989Z"
+  },
+  "https://enquiry.indianrail.gov.in/": {
+    "status": "unreachable",
+    "reason": "UND_ERR_CONNECT_TIMEOUT",
+    "checkedAt": "2026-10-24T17:26:17.643Z"
+  },
+  "https://esanjeevani.mohfw.gov.in/": {
+    "status": "blocked",
+    "httpCode": 403,
+    "checkedAt": "2026-10-24T17:26:11.745Z"
+  },
+  "https://eshram.gov.in/": {
+    "status": "ok",
+    "httpCode": 200,
+    "checkedAt": "2026-10-24T17:26:14.015Z"
+  },
+  "https://gem.gov.in/": {
+    "status": "unreachable",
+    "reason": "ECONNRESET",
+    "checkedAt": "2026-10-24T17:26:25.584Z"
+  },
+  "https://gujaratindia.gov.in/": {
+    "status": "unreachable",
+    "reason": "UND_ERR_CONNECT_TIMEOUT",
+    "checkedAt": "2026-10-24T17:26:35.749Z"
+  },
+  "https://haryana.gov.in/": {
+    "status": "ok",
+    "httpCode": 200,
+    "checkedAt": "2026-10-24T17:26:39.039Z",
+    "finalUrl": "https://www.haryana.gov.in/"
+  },
+  "https://himachal.nic.in/": {
+    "status": "unreachable",
+    "reason": "UND_ERR_CONNECT_TIMEOUT",
+    "checkedAt": "2026-10-24T17:26:41.078Z"
+  },
+  "https://impds.nic.in/": {
+    "status": "ok",
+    "httpCode": 200,
+    "checkedAt": "2026-10-24T17:26:19.616Z"
+  },
+  "https://janaushadhi.gov.in/": {
+    "status": "ok",
+    "httpCode": 200,
+    "checkedAt": "2026-10-24T17:26:12.243Z"
+  },
+  "https://jansunwai.up.nic.in/": {
+    "status": "ok",
+    "httpCode": 200,
+    "checkedAt": "2026-10-24T17:26:34.536Z"
+  },
+  "https://jansuraksha.gov.in/": {
+    "status": "unreachable",
+    "reason": "UNABLE_TO_VERIFY_LEAF_SIGNATURE",
+    "checkedAt": "2026-10-24T17:26:19.976Z"
+  },
+  "https://jeevanpramaan.gov.in/": {
+    "status": "unreachable",
+    "reason": "TimeoutError",
+    "checkedAt": "2026-10-24T17:26:08.082Z"
+  },
+  "https://kerala.gov.in/": {
+    "status": "unreachable",
+    "httpCode": 503,
+    "checkedAt": "2026-10-24T17:26:35.035Z"
+  },
+  "https://mausam.imd.gov.in/": {
+    "status": "ok",
+    "httpCode": 200,
+    "checkedAt": "2026-10-24T17:26:16.830Z"
+  },
+  "https://mohfw.gov.in/": {
+    "status": "ok",
+    "httpCode": 200,
+    "checkedAt": "2026-10-24T17:26:11.837Z",
+    "finalUrl": "https://www.mohfw.gov.in/"
+  },
+  "https://mohua.gov.in/": {
+    "status": "ok",
+    "httpCode": 200,
+    "checkedAt": "2026-10-24T17:26:18.836Z",
+    "finalUrl": "https://www.mohua.gov.in/"
+  },
+  "https://mp.gov.in/": {
+    "status": "unreachable",
+    "reason": "UND_ERR_CONNECT_TIMEOUT",
+    "checkedAt": "2026-10-24T17:26:39.030Z"
+  },
+  "https://myaadhaar.uidai.gov.in/": {
+    "status": "unreachable",
+    "reason": "UND_ERR_CONNECT_TIMEOUT",
+    "checkedAt": "2026-10-24T17:26:08.077Z"
+  },
+  "https://nalsa.gov.in/": {
+    "status": "ok",
+    "httpCode": 200,
+    "checkedAt": "2026-10-24T17:26:24.553Z"
+  },
+  "https://nfsa.gov.in/": {
+    "status": "ok",
+    "httpCode": 200,
+    "checkedAt": "2026-10-24T17:26:19.544Z"
+  },
+  "https://nrega.nic.in/": {
+    "status": "ok",
+    "httpCode": 200,
+    "checkedAt": "2026-10-24T17:26:15.373Z"
+  },
+  "https://nsap.nic.in/": {
+    "status": "unreachable",
+    "reason": "ENOTFOUND",
+    "checkedAt": "2026-10-24T17:26:21.055Z"
+  },
+  "https://nta.ac.in/": {
+    "status": "ok",
+    "httpCode": 200,
+    "checkedAt": "2026-10-24T17:26:12.923Z"
+  },
+  "https://odisha.gov.in/": {
+    "status": "unreachable",
+    "reason": "UND_ERR_CONNECT_TIMEOUT",
+    "checkedAt": "2026-10-24T17:26:39.529Z"
+  },
+  "https://parivahan.gov.in/": {
+    "status": "ok",
+    "httpCode": 200,
+    "checkedAt": "2026-10-24T17:26:43.023Z"
+  },
+  "https://pgportal.gov.in/": {
+    "status": "ok",
+    "httpCode": 200,
+    "checkedAt": "2026-10-24T17:26:23.594Z"
+  },
+  "https://pib.gov.in/": {
+    "status": "ok",
+    "httpCode": 200,
+    "checkedAt": "2026-10-24T17:26:26.980Z",
+    "finalUrl": "https://www.pib.gov.in/index.aspx?reg=48&lang=2"
+  },
+  "https://pmayg.nic.in/": {
+    "status": "unreachable",
+    "reason": "ENOTFOUND",
+    "checkedAt": "2026-10-24T17:26:18.561Z"
+  },
+  "https://pmaymis.gov.in/": {
+    "status": "ok",
+    "httpCode": 200,
+    "checkedAt": "2026-10-24T17:26:18.204Z"
+  },
+  "https://pmfby.gov.in/": {
+    "status": "ok",
+    "httpCode": 200,
+    "checkedAt": "2026-10-24T17:26:16.377Z"
+  },
+  "https://pmjay.gov.in/": {
+    "status": "unreachable",
+    "reason": "UND_ERR_CONNECT_TIMEOUT",
+    "checkedAt": "2026-10-24T17:26:10.593Z"
+  },
+  "https://pmjdy.gov.in/": {
+    "status": "ok",
+    "httpCode": 200,
+    "checkedAt": "2026-10-24T17:26:20.790Z"
+  },
+  "https://pmkisan.gov.in/": {
+    "status": "unreachable",
+    "reason": "UNABLE_TO_VERIFY_LEAF_SIGNATURE",
+    "checkedAt": "2026-10-24T17:26:15.423Z"
+  },
+  "https://punjab.gov.in/": {
+    "status": "unreachable",
+    "reason": "UND_ERR_CONNECT_TIMEOUT",
+    "checkedAt": "2026-10-24T17:26:39.365Z"
+  },
+  "https://rajasthan.gov.in/": {
+    "status": "ok",
+    "httpCode": 200,
+    "checkedAt": "2026-10-24T17:26:37.530Z"
+  },
+  "https://rtionline.gov.in/": {
+    "status": "ok",
+    "httpCode": 200,
+    "checkedAt": "2026-10-24T17:26:24.052Z"
+  },
+  "https://sarathi.parivahan.gov.in/": {
+    "status": "ok",
+    "httpCode": 200,
+    "checkedAt": "2026-10-24T17:26:16.886Z",
+    "finalUrl": "https://sarathi.parivahan.gov.in/sarathiservice/"
+  },
+  "https://scholarships.gov.in/": {
+    "status": "ok",
+    "httpCode": 200,
+    "checkedAt": "2026-10-24T17:26:12.457Z"
+  },
+  "https://scores.sebi.gov.in/": {
+    "status": "ok",
+    "httpCode": 200,
+    "checkedAt": "2026-10-24T17:26:09.655Z"
+  },
+  "https://services.ecourts.gov.in/ecourtindia_v6/": {
+    "status": "unreachable",
+    "reason": "UND_ERR_CONNECT_TIMEOUT",
+    "checkedAt": "2026-10-24T17:26:24.313Z"
+  },
+  "https://sevasindhu.karnataka.gov.in/": {
+    "status": "unreachable",
+    "reason": "UND_ERR_CONNECT_TIMEOUT",
+    "checkedAt": "2026-10-24T17:26:27.546Z"
+  },
+  "https://shramsuvidha.gov.in/": {
+    "status": "unreachable",
+    "reason": "UND_ERR_CONNECT_TIMEOUT",
+    "checkedAt": "2026-10-24T17:26:14.269Z"
+  },
+  "https://skillindiadigital.gov.in/": {
+    "status": "ok",
+    "httpCode": 200,
+    "checkedAt": "2026-10-24T17:26:13.719Z",
+    "finalUrl": "https://www.skillindiadigital.gov.in//"
+  },
+  "https://soilhealth.dac.gov.in/": {
+    "status": "blocked",
+    "httpCode": 403,
+    "checkedAt": "2026-10-24T17:26:15.780Z"
+  },
+  "https://ssc.gov.in/": {
+    "status": "ok",
+    "httpCode": 200,
+    "checkedAt": "2026-10-24T17:26:14.702Z"
+  },
+  "https://sso.rajasthan.gov.in/": {
+    "status": "ok",
+    "httpCode": 200,
+    "checkedAt": "2026-10-24T17:26:37.531Z"
+  },
+  "https://state.bihar.gov.in/": {
+    "status": "unreachable",
+    "reason": "UNABLE_TO_VERIFY_LEAF_SIGNATURE",
+    "checkedAt": "2026-10-24T17:26:39.579Z"
+  },
+  "https://swayam.gov.in/": {
+    "status": "ok",
+    "httpCode": 200,
+    "checkedAt": "2026-10-24T17:26:12.510Z"
+  },
+  "https://udyamregistration.gov.in/": {
+    "status": "ok",
+    "httpCode": 200,
+    "checkedAt": "2026-10-24T17:26:24.998Z"
+  },
+  "https://uidai.gov.in/": {
+    "status": "ok",
+    "httpCode": 200,
+    "checkedAt": "2026-10-24T17:26:08.076Z",
+    "finalUrl": "https://uidai.gov.in/hi"
+  },
+  "https://unifiedportal-mem.epfindia.gov.in/memberinterface/": {
+    "status": "ok",
+    "httpCode": 200,
+    "checkedAt": "2026-10-24T17:26:08.682Z"
+  },
+  "https://up.gov.in/": {
+    "status": "unreachable",
+    "reason": "UND_ERR_CONNECT_TIMEOUT",
+    "checkedAt": "2026-10-24T17:26:32.916Z"
+  },
+  "https://upsc.gov.in/": {
+    "status": "unreachable",
+    "reason": "UND_ERR_CONNECT_TIMEOUT",
+    "checkedAt": "2026-10-24T17:26:14.363Z"
+  },
+  "https://vahan.parivahan.gov.in/vahanservice/": {
+    "status": "unreachable",
+    "reason": "UND_ERR_CONNECT_TIMEOUT",
+    "checkedAt": "2026-10-24T17:26:16.891Z"
+  },
+  "https://voters.eci.gov.in/": {
+    "status": "blocked",
+    "httpCode": 406,
+    "checkedAt": "2026-10-24T17:26:08.080Z"
+  },
+  "https://wb.gov.in/": {
+    "status": "unreachable",
+    "reason": "UND_ERR_CONNECT_TIMEOUT",
+    "checkedAt": "2026-10-24T17:26:36.669Z"
+  },
+  "https://web.umang.gov.in/": {
+    "status": "ok",
+    "httpCode": 200,
+    "checkedAt": "2026-10-24T17:26:26.323Z"
+  },
+  "https://www.abc.gov.in/": {
+    "status": "blocked",
+    "httpCode": 403,
+    "checkedAt": "2026-10-24T17:26:13.664Z"
+  },
+  "https://www.ap.gov.in/": {
+    "status": "unreachable",
+    "reason": "UND_ERR_CONNECT_TIMEOUT",
+    "checkedAt": "2026-10-24T17:26:38.530Z"
+  },
+  "https://www.apprenticeshipindia.gov.in/": {
+    "status": "blocked",
+    "httpCode": 403,
+    "checkedAt": "2026-10-24T17:26:14.711Z"
+  },
+  "https://www.cbse.gov.in/": {
+    "status": "ok",
+    "httpCode": 200,
+    "checkedAt": "2026-10-24T17:26:12.862Z"
+  },
+  "https://www.cowin.gov.in/": {
+    "status": "ok",
+    "httpCode": 200,
+    "checkedAt": "2026-10-24T17:26:11.331Z"
+  },
+  "https://www.digilocker.gov.in/": {
+    "status": "ok",
+    "httpCode": 200,
+    "checkedAt": "2026-10-24T17:26:08.078Z"
+  },
+  "https://www.digitalgujarat.gov.in/": {
+    "status": "unreachable",
+    "reason": "UND_ERR_CONNECT_TIMEOUT",
+    "checkedAt": "2026-10-24T17:26:36.250Z"
+  },
+  "https://www.digiyatra.gov.in/": {
+    "status": "unreachable",
+    "reason": "ENOTFOUND",
+    "checkedAt": "2026-10-24T17:26:18.185Z"
+  },
+  "https://www.esic.gov.in/": {
+    "status": "unreachable",
+    "reason": "UND_ERR_CONNECT_TIMEOUT",
+    "checkedAt": "2026-10-24T17:26:14.063Z"
+  },
+  "https://www.gst.gov.in/": {
+    "status": "ok",
+    "httpCode": 200,
+    "checkedAt": "2026-10-24T17:26:08.086Z"
+  },
+  "https://www.icegate.gov.in/": {
+    "status": "unreachable",
+    "reason": "UNABLE_TO_VERIFY_LEAF_SIGNATURE",
+    "checkedAt": "2026-10-24T17:26:10.585Z"
+  },
+  "https://www.incometax.gov.in/iec/foportal/": {
+    "status": "ok",
+    "httpCode": 200,
+    "checkedAt": "2026-10-24T17:26:08.082Z"
+  },
+  "https://www.india.gov.in/": {
+    "status": "ok",
+    "httpCode": 200,
+    "checkedAt": "2026-10-24T17:26:26.465Z"
+  },
+  "https://www.indiacode.nic.in/": {
+    "status": "ok",
+    "httpCode": 200,
+    "checkedAt": "2026-10-24T17:26:26.844Z"
+  },
+  "https://www.irctc.co.in/": {
+    "status": "blocked",
+    "httpCode": 403,
+    "checkedAt": "2026-10-24T17:26:17.306Z"
+  },
+  "https://www.karnataka.gov.in/": {
+    "status": "unreachable",
+    "reason": "UND_ERR_CONNECT_TIMEOUT",
+    "checkedAt": "2026-10-24T17:26:27.492Z"
+  },
+  "https://www.maharashtra.gov.in/": {
+    "status": "unreachable",
+    "reason": "UND_ERR_CONNECT_TIMEOUT",
+    "checkedAt": "2026-10-24T17:26:27.047Z"
+  },
+  "https://www.mca.gov.in/": {
+    "status": "blocked",
+    "httpCode": 403,
+    "checkedAt": "2026-10-24T17:26:25.096Z"
+  },
+  "https://www.mygov.in/": {
+    "status": "ok",
+    "httpCode": 200,
+    "checkedAt": "2026-10-24T17:26:26.562Z"
+  },
+  "https://www.ncs.gov.in/": {
+    "status": "ok",
+    "httpCode": 200,
+    "checkedAt": "2026-10-24T17:26:14.007Z",
+    "finalUrl": "https://ncs.gov.in/"
+  },
+  "https://www.npscra.nsdl.co.in/": {
+    "status": "unreachable",
+    "reason": "ENOTFOUND",
+    "checkedAt": "2026-10-24T17:26:09.029Z"
+  },
+  "https://www.onlineservices.nsdl.com/paam/endUserRegisterContact.html": {
+    "status": "unreachable",
+    "reason": "ENOTFOUND",
+    "checkedAt": "2026-10-24T17:26:08.083Z"
+  },
+  "https://www.pan.utiitsl.com/": {
+    "status": "ok",
+    "httpCode": 200,
+    "checkedAt": "2026-10-24T17:26:08.085Z"
+  },
+  "https://www.passportindia.gov.in/": {
+    "status": "ok",
+    "httpCode": 200,
+    "checkedAt": "2026-10-24T17:26:08.044Z",
+    "finalUrl": "https://www.passportindia.gov.in/psp"
+  },
+  "https://www.pib.gov.in/RssMain.aspx?ModId=6&Lang=1&Regid=3&reg=3": {
+    "status": "ok",
+    "httpCode": 200,
+    "checkedAt": "2026-10-24T17:26:44.334Z"
+  },
+  "https://www.pmuy.gov.in/": {
+    "status": "ok",
+    "httpCode": 200,
+    "checkedAt": "2026-10-24T17:26:21.328Z",
+    "finalUrl": "https://www.pmuy.gov.in/index.aspx"
+  },
+  "https://www.rbi.org.in/": {
+    "status": "ok",
+    "httpCode": 200,
+    "checkedAt": "2026-10-24T17:26:42.781Z"
+  },
+  "https://www.swavlambancard.gov.in/": {
+    "status": "ok",
+    "httpCode": 200,
+    "checkedAt": "2026-10-24T17:26:21.278Z",
+    "finalUrl": "https://swavlambancard.gov.in/"
+  },
+  "https://www.tdscpc.gov.in/": {
+    "status": "ok",
+    "httpCode": 200,
+    "checkedAt": "2026-10-24T17:26:08.086Z",
+    "finalUrl": "https://traces.tdscpc.gov.in/"
+  },
+  "https://www.telangana.gov.in/": {
+    "status": "ok",
+    "httpCode": 200,
+    "checkedAt": "2026-10-24T17:26:38.083Z"
+  },
+  "https://www.tn.gov.in/": {
+    "status": "unreachable",
+    "reason": "UND_ERR_CONNECT_TIMEOUT",
+    "checkedAt": "2026-10-24T17:26:28.045Z"
+  },
+  "https://www.tnega.tn.gov.in/": {
+    "status": "unreachable",
+    "reason": "ENOTFOUND",
+    "checkedAt": "2026-10-24T17:26:28.137Z"
+  },
+  "https://www.ugc.gov.in/": {
+    "status": "ok",
+    "httpCode": 200,
+    "checkedAt": "2026-10-24T17:26:13.660Z"
+  }
+}
