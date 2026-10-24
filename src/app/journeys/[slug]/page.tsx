@@ -38,7 +38,8 @@ export default async function JourneyPage({ params }: PageProps<"/journeys/[slug
         </Link>
       </div>
 
-      <div className="mt-8">
+      <div className="mt-8 space-y-6">
+        <JourneyStepTracker journey={journey} />
         <JourneyPlanner journey={journey} />
       </div>
       <div className="mt-10">

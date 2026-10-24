@@ -94,4 +94,23 @@ await mkdir(out, { recursive: true });
 await writeFile(path.join(out, "link-status.json"), JSON.stringify(linkStatus, null, 2) + "\n");
 await writeFile(path.join(out, "official-snippets.json"), JSON.stringify(snippets, null, 2) + "\n");
 const counts = results.reduce((a, r) => ((a[r.check.status] = (a[r.check.status] ?? 0) + 1), a), {});
+const reportLines = [
+  `# Link health report`,
+  ``,
+  `Generated: ${new Date().toISOString()}`,
+  ``,
+  `| Status | Count |`,
+  `| --- | ---: |`,
+  ...Object.entries(counts).map(([k, v]) => `| ${k} | ${v} |`),
+  ``,
+  `## Unreachable or blocked`,
+  ``,
+  ...results
+    .filter((r) => r.check.status !== "ok")
+    .sort((a, b) => a.url.localeCompare(b.url))
+    .map((r) => `- **${r.check.status}** ${r.url}${r.check.httpCode ? ` (${r.check.httpCode})` : r.check.reason ? ` (${r.check.reason})` : ""}`),
+  ``,
+];
+await writeFile(path.join(out, "link-health-report.md"), reportLines.join("\n") + "\n");
 console.log("done", counts, "snippets:", Object.keys(snippets).length);
+console.log("report:", path.join(out, "link-health-report.md"));
