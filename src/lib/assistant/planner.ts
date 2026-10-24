@@ -15,6 +15,7 @@ const PERSONAL_RECORD = [
 ];
 
 const OUT_OF_SCOPE = [
+  /\bignore (all|previous|above) instructions\b/i,
   /\b(legal advice|should i sue|can i win|lawyer recommend)\b/,
   /\b(vote for|which party|election prediction)\b/,
   /\b(stock tip|which stock|crypto|bitcoin)\b/,

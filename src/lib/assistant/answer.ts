@@ -1,5 +1,5 @@
 import { randomUUID } from "node:crypto";
-import { plan as makePlan } from "@/lib/assistant/planner";
+import { planWithRetrieval } from "@/lib/retrieval/hybrid";
 import { mockProvider } from "@/lib/assistant/mock-provider";
 import { llmProvider, llmConfigured } from "@/lib/assistant/llm-provider";
 import { isOfficialUrl } from "@/lib/official-hosts";
@@ -50,7 +50,7 @@ function followUpsFor(plan: Plan): string[] {
 }
 
 export async function answerQuery(query: string, language = "en-IN"): Promise<AssistantReply> {
-  const plan = makePlan(query);
+  const plan = await planWithRetrieval(query);
   const id = randomUUID();
   const base = { id, language, followUps: followUpsFor(plan), serviceSlugs: plan.serviceSlugs };
 

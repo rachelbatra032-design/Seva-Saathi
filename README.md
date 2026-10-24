@@ -29,7 +29,48 @@ npm run build
 npm run data:refresh   # link check + generated snapshots
 ```
 
-Copy `.env.example` to `.env.local` for optional `SARVAM_API_KEY` and LLM settings. **Never commit secrets.**
+Copy `.env.example` to `.env.local` for optional keys. **Never commit secrets.**
+
+**Without `DATABASE_URL`:** the app serves directory, journeys, and the assistant from reviewed files in `src/data/` (default for CI and quick dev).
+
+**With Postgres:** hybrid retrieval can use ingested chunks (PIB RSS first). Works with local Docker Compose or hosted Neon/Supabase.
+
+```bash
+npm run db:up          # Docker: Postgres + pgvector on localhost:5433
+export DATABASE_URL=postgresql://seva:seva_local@127.0.0.1:5433/seva_saathi
+npm run db:migrate
+npm run db:seed        # load services/journeys/link checks from TS + JSON
+npm run ingest         # polite PIB RSS ingest → chunks + mock embeddings
+```
+
+E2E tests use port **4822** so the preview dev server can stay on **4821**.
+
+## Backend architecture (v1)
+
+| Layer | Role |
+| --- | --- |
+| **Next.js route handlers** | `/api/ask`, `/api/chat`, `/api/voice/*`, `/api/journeys/[slug]`, `/api/actions/*` |
+| **Postgres (optional)** | Drizzle schema: services, journeys, sources, chunks, link_checks, feedback |
+| **Ingest worker** | `npm run ingest` — rate-limited fetch, short summaries only, content hashes |
+| **Retrieval** | File BM25 planner + optional DB chunk similarity when `DATABASE_URL` is set |
+| **LLM** | Pluggable OpenAI-compatible composer; **mock matcher** when no key |
+| **Actions** | Stage 1 prefill/deep links; stages 2–3 **roadmap stubs** (DigiLocker / API Setu consent mocks only) |
+
+### API summary
+
+- `POST /api/ask` — grounded answer schema `{ answer, citations, confidence, refused }`
+- `POST /api/chat` — same assistant with translation (Sarvam or demo)
+- `POST /api/voice/transcribe|translate|speak` — Sarvam proxies; audio not stored
+- `POST /api/actions/consent` — mock consent grant (roadmap)
+- `POST /api/actions/prefill` — journey prefill + official deep links (no submission)
+
+### Evaluations
+
+```bash
+npm test              # unit + routing + Sarvam client mocks
+npm run test:eval     # evals/ask-eval.json regression set
+npm run test:e2e      # Playwright on :4822
+```
 
 ## How this differs from a general AI chatbot
 
