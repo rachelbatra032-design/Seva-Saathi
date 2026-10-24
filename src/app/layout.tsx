@@ -13,12 +13,12 @@ const devanagari = Noto_Sans_Devanagari({ variable: "--font-devanagari", subsets
 
 export const metadata: Metadata = {
   title: {
-    default: "India.Gov: one place for Indian government services (unofficial)",
-    template: "%s | India.Gov (unofficial)",
+    default: "Seva Saathi — unofficial guide to Indian government services",
+    template: "%s | Seva Saathi (unofficial)",
   },
   description:
     "An unofficial aggregator that gathers links to Indian government services, schemes and updates in one place, and guides you through life events using official sources only.",
-  applicationName: "India.Gov",
+  applicationName: "Seva Saathi",
 };
 
 export const viewport: Viewport = {

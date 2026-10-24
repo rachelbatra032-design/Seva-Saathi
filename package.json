@@ -1,7 +1,8 @@
 {
-  "name": "india-gov",
+  "name": "seva-saathi",
   "version": "0.1.0",
   "private": true,
+  "license": "Apache-2.0",
   "scripts": {
     "dev": "next dev -p 4821",
     "build": "next build",

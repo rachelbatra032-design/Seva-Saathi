@@ -4,7 +4,7 @@ import { AskChat } from "@/components/ask-chat";
 import { Skeleton } from "@/components/ui/skeleton";
 
 export const metadata: Metadata = {
-  title: "Ask India.Gov",
+  title: "Ask Seva Saathi",
   description:
     "Describe a situation in your own words and get a guided, cited plan from official sources, in text or by voice, in Indian languages.",
 };
@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 export default function AskPage() {
   return (
     <div className="mx-auto max-w-5xl px-4 py-10">
-      <p className="text-sm font-semibold uppercase tracking-[0.14em] text-saffron">Ask India.Gov</p>
+      <p className="text-sm font-semibold uppercase tracking-[0.14em] text-saffron">Ask Seva Saathi</p>
       <h1 className="mt-2 text-4xl font-semibold text-primary">Tell us what happened. We&apos;ll map the steps.</h1>
       <p className="mx-auto mt-3 max-w-2xl text-muted-foreground">
         Answers come only from official government sources that we have on file, and every answer shows its links. When we don&apos;t know, we say so.

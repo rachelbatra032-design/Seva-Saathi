@@ -15,7 +15,7 @@ export type UiStrings = {
 };
 
 const en: UiStrings = {
-  askTitle: "Ask India.Gov",
+  askTitle: "Ask Seva Saathi",
   askPlaceholder: "Ask in your own words, e.g. I just got married, how do I change my name?",
   askButton: "Ask",
   searchPlaceholder: "Search services, schemes and departments",
@@ -31,7 +31,7 @@ const en: UiStrings = {
 };
 
 const hi: UiStrings = {
-  askTitle: "India.Gov से पूछें",
+  askTitle: "Seva Saathi से पूछें",
   askPlaceholder: "अपने शब्दों में पूछें, जैसे: मेरी अभी शादी हुई है, नाम कैसे बदलूँ?",
   askButton: "पूछें",
   searchPlaceholder: "सेवाएँ, योजनाएँ और विभाग खोजें",

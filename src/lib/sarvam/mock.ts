@@ -88,8 +88,8 @@ const HI_FIXED: [string, string][] = [
     "मेरी निर्देशिका में इसके लिए कोई भरोसेमंद आधिकारिक स्रोत नहीं है, इसलिए मैं अंदाज़ा नहीं लगाऊँगा।",
   ],
   [
-    "Use the official link below to do the actual application. India.Gov cannot submit anything for you.",
-    "वास्तविक आवेदन के लिए नीचे दिया गया आधिकारिक लिंक इस्तेमाल करें। India.Gov आपकी ओर से कुछ भी जमा नहीं कर सकता।",
+    "Use the official link below to do the actual application. Seva Saathi cannot submit anything for you.",
+    "वास्तविक आवेदन के लिए नीचे दिया गया आधिकारिक लिंक इस्तेमाल करें। Seva Saathi आपकी ओर से कुछ भी जमा नहीं कर सकता।",
   ],
 ];
 

@@ -49,7 +49,7 @@ export const mockProvider: AssistantProvider = {
         steps.forEach((st, k) => lines.push(`${k + 1}. ${st}`));
         lines.push("");
       });
-      lines.push("Use the official link below to do the actual application. India.Gov cannot submit anything for you.");
+      lines.push("Use the official link below to do the actual application. Seva Saathi cannot submit anything for you.");
       return { text: lines.join("\n"), used, supported: used.length > 0 };
     }
 

@@ -11,19 +11,16 @@ import { cn } from "@/lib/utils";
 export function Logo() {
   return (
     <Link href="/" className="flex items-center gap-2.5 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
-      <span aria-hidden className="grid size-9 place-items-center rounded-lg bg-primary text-primary-foreground">
-        <span className="flex flex-col gap-[3px]">
-          <span className="block h-[3px] w-5 rounded-full bg-saffron" />
-          <span className="block h-[3px] w-5 rounded-full bg-white" />
-          <span className="block h-[3px] w-5 rounded-full bg-india-green" />
-        </span>
+      <span
+        aria-hidden
+        className="grid size-9 place-items-center rounded-lg bg-primary font-heading text-sm font-bold text-primary-foreground"
+      >
+        SS
       </span>
       <span className="leading-none">
-        <span className="block font-heading text-xl font-semibold tracking-tight text-primary">
-          India<span className="text-saffron">.</span>Gov
-        </span>
+        <span className="block font-heading text-xl font-semibold tracking-tight text-primary">Seva Saathi</span>
         <span className="mt-0.5 block text-[10px] font-medium uppercase tracking-[0.14em] text-muted-foreground">
-          Unofficial citizen guide
+          Unofficial
         </span>
       </span>
     </Link>
@@ -89,7 +86,7 @@ export function SiteHeader() {
                   </Link>
                 ))}
                 <Link href="/ask" className="rounded-md px-3 py-2.5 text-base font-medium hover:bg-muted">
-                  {t.navAsk} India.Gov
+                  {t.navAsk} Seva Saathi
                 </Link>
                 <div className="mt-3 border-t pt-4">
                   <LanguageSelect />

@@ -11,7 +11,7 @@ export function SiteFooter() {
             <Logo />
           </div>
           <p className="max-w-md text-sm leading-relaxed text-primary-foreground/80">
-            India.Gov is an independent, unofficial project. It is not affiliated with the
+            Seva Saathi is an independent, unofficial project. It is not affiliated with the
             Government of India. We collect links to official websites and summarise how to use
             them. For anything that matters (applications, payments, legal status) always go to
             the official site we link to, and check it there.
@@ -47,7 +47,7 @@ export function SiteFooter() {
             Explore
           </h2>
           <ul className="grid gap-2">
-            <li><Link className="text-primary-foreground/85 hover:text-white hover:underline" href="/ask">Ask India.Gov</Link></li>
+            <li><Link className="text-primary-foreground/85 hover:text-white hover:underline" href="/ask">Ask Seva Saathi</Link></li>
             <li><Link className="text-primary-foreground/85 hover:text-white hover:underline" href="/journeys">Life-event guides</Link></li>
             <li><Link className="text-primary-foreground/85 hover:text-white hover:underline" href="/services">Services directory</Link></li>
             <li><Link className="text-primary-foreground/85 hover:text-white hover:underline" href="/updates">Latest updates</Link></li>

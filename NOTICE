@@ -1,0 +1,23 @@
+Seva Saathi (unofficial)
+Copyright 2026 Rachel Batra
+
+This product includes software developed as the Seva Saathi project
+(Apache License 2.0). See LICENSE.
+
+Third-party open-source components are listed in package-lock.json with
+their respective licenses.
+
+Government data in this repository
+----------------------------------
+Service listings, official URLs, short paraphrased summaries, and journey
+steps are curated pointers to third-party government and agency websites.
+They are not licensed under Apache-2.0. Each source remains subject to its
+own terms, copyright, and policies. This project does not claim ownership
+of government works. Users must follow the official site for applications,
+fees, and legal effect.
+
+Trademarks
+----------
+Government names, scheme names, logos, and domains belong to their respective
+owners. Seva Saathi is an unofficial, independent project and is not
+affiliated with the Government of India or any state government.

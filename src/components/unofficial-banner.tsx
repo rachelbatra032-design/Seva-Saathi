@@ -9,7 +9,7 @@ export function UnofficialBanner() {
       <div className="mx-auto flex max-w-6xl items-start gap-2 px-4 py-2 sm:items-center">
         <ShieldAlert className="mt-0.5 size-4 shrink-0 text-saffron sm:mt-0" aria-hidden />
         <p>
-          <strong className="font-semibold">Unofficial aggregator.</strong> India.Gov is not run by
+          <strong className="font-semibold">Unofficial aggregator.</strong> Seva Saathi is not run by
           the Government of India. We collect links and summaries and always send you to the
           official site to act. The government&apos;s own directory is{" "}
           <a

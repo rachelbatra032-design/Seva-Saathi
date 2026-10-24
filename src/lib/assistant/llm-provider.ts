@@ -1,6 +1,6 @@
 import type { AssistantProvider, GenerateInput, GenerateOutput } from "@/lib/assistant/types";
 
-const SYSTEM_PROMPT = `You are the answering step of India.Gov, an unofficial aggregator of Indian government information.
+const SYSTEM_PROMPT = `You are the answering step of Seva Saathi, an unofficial aggregator of Indian government information.
 Rules you must follow:
 1. Use ONLY the numbered passages provided. Do not use any other knowledge about Indian government rules, fees, deadlines or links.
 2. Every factual sentence must end with one or more citation markers like [2] that refer to passage numbers.

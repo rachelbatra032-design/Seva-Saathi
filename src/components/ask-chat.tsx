@@ -175,7 +175,7 @@ function AssistantMessage({
             ))}
           </div>
         )}
-        <p className="text-[11px] text-muted-foreground">Composed by: {reply.provider}. India.Gov is unofficial; confirm details on the official site before acting.</p>
+        <p className="text-[11px] text-muted-foreground">Composed by: {reply.provider}. Seva Saathi is unofficial; confirm details on the official site before acting.</p>
       </div>
     </div>
   );

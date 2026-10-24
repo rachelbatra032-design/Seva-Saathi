@@ -31,7 +31,7 @@ function refusalText(plan: Plan): string {
     case "personal-record":
       return "I cannot see anyone's personal records, application status, or ID numbers, and you should not share them in a chat. You can check this yourself on the official site, which is linked below.";
     case "out-of-scope":
-      return "That is outside what India.Gov can answer from official sources, so I will not guess. For government information, the National Portal of India is the best starting point.";
+      return "That is outside what Seva Saathi can answer from official sources, so I will not guess. For government information, the National Portal of India is the best starting point.";
     case "translation-unavailable":
       return "I could not translate your message because voice and translation are not configured on this server. Please type your question in English, or ask the site owner to set up the Sarvam API key.";
     default:

@@ -70,7 +70,7 @@ export default async function ServicePage({ params }: PageProps<"/services/[slug
               <LinkStatusNote url={service.url} />
             </div>
             <p className="mt-3 text-xs text-foreground/70">
-              India.Gov is an unofficial aggregator. Applications, payments and status checks all happen on the official
+              Seva Saathi is an unofficial aggregator. Applications, payments and status checks all happen on the official
               site. Never share OTPs or pay anyone who offers to &quot;fast-track&quot; a government service.
             </p>
           </section>

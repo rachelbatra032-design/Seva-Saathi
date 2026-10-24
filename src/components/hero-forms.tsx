@@ -13,7 +13,7 @@ export function HeroForms() {
   const { t } = useLanguage();
   return (
     <div className="mt-8 max-w-2xl">
-      <form action="/ask" method="get" role="search" aria-label="Ask India.Gov" className="rounded-2xl bg-white p-2 shadow-xl ring-1 ring-black/5">
+      <form action="/ask" method="get" role="search" aria-label="Ask Seva Saathi" className="rounded-2xl bg-white p-2 shadow-xl ring-1 ring-black/5">
         <label htmlFor="hero-ask" className="sr-only">{t.askTitle}</label>
         <div className="flex items-center gap-2">
           <Sparkles className="ml-3 size-5 shrink-0 text-saffron" aria-hidden />

@@ -27,7 +27,7 @@ export default function HomePage() {
             Stop chasing between government websites. Start with what happened.
           </h1>
           <p className="mt-4 max-w-2xl text-lg text-primary-foreground/85">
-            India.Gov gathers {allServices.length} official services and turns life events, like a marriage, a lost document or a move, into one ordered plan with a link to the official site for every step.
+            Seva Saathi gathers {allServices.length} official services and turns life events, like a marriage, a lost document or a move, into one ordered plan with a link to the official site for every step.
           </p>
           <HeroForms />
           <dl className="mt-10 flex flex-wrap gap-x-10 gap-y-3 text-sm">
@@ -106,8 +106,8 @@ export default function HomePage() {
               </Suspense>
             </div>
           </div>
-          <aside aria-label="How India.Gov works" className="space-y-4 rounded-2xl bg-secondary p-6">
-            <h2 className="text-xl font-semibold text-primary">How India.Gov is different</h2>
+          <aside aria-label="How Seva Saathi works" className="space-y-4 rounded-2xl bg-secondary p-6">
+            <h2 className="text-xl font-semibold text-primary">How Seva Saathi is different</h2>
             <ul className="space-y-4 text-sm">
               <li className="flex gap-3"><BookCheck className="mt-0.5 size-5 shrink-0 text-india-green" aria-hidden /><span><strong>Official sources only.</strong> Every answer cites government websites, and says so when it does not know.</span></li>
               <li className="flex gap-3"><Route className="mt-0.5 size-5 shrink-0 text-india-green" aria-hidden /><span><strong>Whole journeys.</strong> One plan across Aadhaar, PAN, passport, EPFO and more, in the right order.</span></li>

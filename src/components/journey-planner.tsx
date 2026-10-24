@@ -209,7 +209,7 @@ function StepCard({ journey, step, index, titleById }: { journey: Journey; step:
                   <CopyButton text={summary} />
                 </div>
                 <pre className="mt-2 overflow-x-auto whitespace-pre-wrap rounded-lg bg-muted p-3 font-mono text-xs leading-relaxed">{summary}</pre>
-                <p className="mt-1.5 text-xs text-muted-foreground">Built from “Your details” above. Paste into the official form yourself; India.Gov never submits anything.</p>
+                <p className="mt-1.5 text-xs text-muted-foreground">Built from “Your details” above. Paste into the official form yourself; Seva Saathi never submits anything.</p>
               </div>
 
               {step.caveat && (

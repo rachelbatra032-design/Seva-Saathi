@@ -180,7 +180,7 @@ export function ServiceDirectory({ total }: { total: number }) {
               href={`/ask${query ? `?q=${encodeURIComponent(query)}` : ""}`}
               className="inline-flex h-8 items-center rounded-lg bg-primary px-3 text-sm font-medium text-primary-foreground hover:bg-primary/90"
             >
-              Ask India.Gov instead
+              Ask Seva Saathi instead
             </Link>
           </div>
         </div>

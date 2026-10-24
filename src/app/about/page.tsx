@@ -4,7 +4,7 @@ import { allServices, getLinkCheck } from "@/lib/services";
 
 export const metadata: Metadata = {
   title: "About and data sources",
-  description: "What India.Gov is, what it is not, how we pick and check official links, and how the assistant avoids guessing.",
+  description: "What Seva Saathi is, what it is not, how we pick and check official links, and how the assistant avoids guessing.",
 };
 
 export default function AboutPage() {
@@ -17,7 +17,7 @@ export default function AboutPage() {
       <p className="text-sm font-semibold uppercase tracking-[0.14em] text-saffron">About</p>
       <h1 className="mt-2 text-4xl font-semibold text-primary">An unofficial guide that always points to the official source</h1>
       <div className="mt-6 space-y-5 leading-relaxed text-foreground/90">
-        <p>India.Gov is an independent project. It is not run by, endorsed by or affiliated with the Government of India or any state government. It collects links and plain-language summaries so that you do not have to chase across dozens of websites, and it sends you to the official site for every action.</p>
+        <p>Seva Saathi is an independent project. It is not run by, endorsed by or affiliated with the Government of India or any state government. It collects links and plain-language summaries so that you do not have to chase across dozens of websites, and it sends you to the official site for every action.</p>
         <p>The government&apos;s own directory of services is the National Portal of India. We recommend it as the authoritative starting point.</p>
         <div><OfficialLinkButton href="https://www.india.gov.in/" variant="outline">Visit india.gov.in</OfficialLinkButton></div>
 
