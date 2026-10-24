@@ -20,7 +20,7 @@ The official national directory is [india.gov.in](https://www.india.gov.in/). Se
 
 ```bash
 git clone https://github.com/rachelbatra032-design/Seva-Saathi.git
-cd seva-saathi
+cd Seva-Saathi
 npm install
 npm run dev        # http://localhost:4821
 npm test
