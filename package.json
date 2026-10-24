@@ -2,6 +2,10 @@
   "name": "seva-saathi",
   "version": "0.1.0",
   "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rachel-batra/seva-saathi.git"
+  },
   "license": "Apache-2.0",
   "scripts": {
     "dev": "next dev -H 0.0.0.0 -p 4821",

@@ -1,15 +1,18 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono, Noto_Sans_Devanagari, Source_Serif_4 } from "next/font/google";
+import { Geist_Mono, Noto_Sans, Noto_Sans_Bengali, Noto_Sans_Devanagari, Noto_Sans_Tamil, Noto_Sans_Telugu, Source_Serif_4 } from "next/font/google";
 import "./globals.css";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { UnofficialBanner } from "@/components/unofficial-banner";
 import { LanguageProvider } from "@/components/language-provider";
 
-const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
+const notoSans = Noto_Sans({ variable: "--font-sans-latin", subsets: ["latin"], display: "swap" });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
 const sourceSerif = Source_Serif_4({ variable: "--font-source-serif", subsets: ["latin"] });
-const devanagari = Noto_Sans_Devanagari({ variable: "--font-devanagari", subsets: ["devanagari"] });
+const devanagari = Noto_Sans_Devanagari({ variable: "--font-devanagari", subsets: ["devanagari"], display: "swap" });
+const tamil = Noto_Sans_Tamil({ variable: "--font-tamil", subsets: ["tamil"], weight: ["400", "600", "700"], display: "swap" });
+const telugu = Noto_Sans_Telugu({ variable: "--font-telugu", subsets: ["telugu"], weight: ["400", "600", "700"], display: "swap" });
+const bengali = Noto_Sans_Bengali({ variable: "--font-bengali", subsets: ["bengali"], weight: ["400", "600", "700"], display: "swap" });
 
 export const metadata: Metadata = {
   title: {
@@ -31,7 +34,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} ${sourceSerif.variable} ${devanagari.variable} h-full antialiased`}
+      className={`${notoSans.variable} ${geistMono.variable} ${sourceSerif.variable} ${devanagari.variable} ${tamil.variable} ${telugu.variable} ${bengali.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col bg-background text-foreground">
         <LanguageProvider>

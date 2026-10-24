@@ -1,50 +1,57 @@
 # Seva Saathi (unofficial)
 
-**Seva Saathi** is an **unofficial**, independent project. It is **not** affiliated with, endorsed by, or operated by the Government of India or any state government. There are no government emblems or logos in this app.
+Repository: [github.com/rachel-batra/seva-saathi](https://github.com/rachel-batra/seva-saathi)
 
-The official national directory is the [National Portal of India](https://www.india.gov.in/). Seva Saathi adds plain-language pointers, cross-agency life-event plans, and a citation-grounded assistant.
+**Seva Saathi** is an **unofficial**, independent guide to Indian government services. It is **not** affiliated with, endorsed by, or operated by the Government of India or any state government. There are **no government emblems or logos** in this app.
 
-## Licence
+The official national directory is [india.gov.in](https://www.india.gov.in/). Seva Saathi adds plain-language pointers, cross-agency **life-event plans**, and a **citation-grounded** assistant inspired by editorial government portals (see [docs/DESIGN-SOURCES.md](docs/DESIGN-SOURCES.md)).
 
-- **Source code** in this repository is licensed under the [Apache License 2.0](LICENSE). See also [NOTICE](NOTICE).
-- **Data** (service URLs, paraphrased summaries, journey text) is **not** covered by that licence. It remains subject to each government or agency site's terms and copyright. We link to official pages rather than republishing their text.
+![Home — ask-first hero](docs/media/seva-home.png)
 
-## What is in this slice
-
-| Area | What it does |
+| Screenshot | Description |
 | --- | --- |
-| **Ask Seva Saathi** (`/ask`) | One question box: describe your situation and get an ordered plan with official links, citations, and a tickable checklist. Refuses when the corpus does not support an answer. Voice and Indian languages via Sarvam when configured. |
-| **Life-event guides** (`/journeys`) | Multi-agency plans (marriage name change, lost ID, interstate move, new baby, first job, bereavement). Per-step progress, documents, and official links. |
-| **Services directory** (`/services`) | Central and state portals with search and filters. |
-| **Topic hubs** (`/topics`) | Browse by theme. |
-| **Updates** (`/updates`) | PIB RSS headlines with caching and fallbacks. |
+| [Home](docs/media/seva-home.png) | Editorial hero with a large question box and quick services |
+| [Life-event journey](docs/media/seva-journey.png) | Name-change guide with step tracker |
+| [Ask with citations](docs/media/seva-ask.png) | Grounded answer with official source links |
 
-## Run locally
+## Quick start
 
 ```bash
+git clone https://github.com/rachel-batra/seva-saathi.git
+cd seva-saathi
 npm install
 npm run dev        # http://localhost:4821
 npm test
-npm run build
-npm run data:refresh   # link check + generated snapshots
+npm run build      # uses .next-ci (does not overwrite dev .next)
 ```
 
-Copy `.env.example` to `.env.local` for optional keys. **Never commit secrets.**
+Copy [.env.example](.env.example) to `.env.local` for optional Sarvam, LLM, and Postgres settings. **Never commit secrets.**
 
-**Without `DATABASE_URL`:** the app serves directory, journeys, and the assistant from reviewed files in `src/data/` (default for CI and quick dev).
+## What you get
 
-**With Postgres:** hybrid retrieval can use ingested chunks (PIB RSS first). Works with local Docker Compose or hosted Neon/Supabase.
+| Area | Route | Summary |
+| --- | --- | --- |
+| Ask | `/ask` | Question box, citations, refusals, optional voice (Sarvam) |
+| Life events | `/journeys` | Multi-agency plans with checklists |
+| Directory | `/services` | Central and state portals |
+| Topics | `/topics` | Browse by theme |
+| Updates | `/updates` | PIB headlines (cached) |
 
-```bash
-npm run db:up          # Docker: Postgres + pgvector on localhost:5433
-export DATABASE_URL=postgresql://seva:seva_local@127.0.0.1:5433/seva_saathi
-npm run db:migrate
-npm run db:seed        # load services/journeys/link checks from TS + JSON
-npm run ingest         # polite PIB RSS ingest → chunks + mock embeddings (robots.txt + per-host limits for INGEST_URLS)
-npm run db:migrate:down # reverse the latest down migration (pgvector → jsonb)
-```
+Optional Postgres + ingestion: see **Backend architecture** below.
 
-E2E tests use port **4822** so the preview dev server can stay on **4821**.
+## Licence and data
+
+- **Code:** [Apache-2.0](LICENSE) — see [NOTICE](NOTICE).
+- **Government listings and summaries:** not Apache-licensed; each official site’s terms apply.
+- **Design:** patterns informed by America.gov / USWDS; implementation is our own — [docs/DESIGN-SOURCES.md](docs/DESIGN-SOURCES.md).
+
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md). Report wrong links via the GitHub issue template.
+
+## Security
+
+See [SECURITY.md](SECURITY.md).
 
 ## Backend architecture (v1)
 
@@ -52,38 +59,32 @@ E2E tests use port **4822** so the preview dev server can stay on **4821**.
 | --- | --- |
 | **Next.js route handlers** | `/api/ask`, `/api/chat`, `/api/voice/*`, `/api/journeys/[slug]`, `/api/actions/*` |
 | **Postgres (optional)** | Drizzle schema: services, journeys, sources, chunks, link_checks, feedback |
-| **Ingest worker** | `npm run ingest` — rate-limited fetch, short summaries only, content hashes |
-| **Retrieval** | File BM25 planner + optional DB chunk similarity when `DATABASE_URL` is set |
-| **LLM** | Pluggable OpenAI-compatible composer; **mock matcher** when no key |
-| **Actions** | Stage 1 prefill/deep links; stages 2–3 **roadmap stubs** (DigiLocker / API Setu consent mocks only) |
+| **Ingest worker** | `npm run ingest` — polite fetch, robots.txt for `INGEST_URLS`, mock embeddings without keys |
+| **Retrieval** | File BM25 + optional pgvector cosine search |
+| **LLM** | Pluggable OpenAI-compatible composer; mock matcher when no key |
+| **Actions** | Stage 1 prefill/deep links; stages 2–3 roadmap stubs (DigiLocker / API Setu) |
 
-### API summary
+```bash
+npm run db:up
+export DATABASE_URL=postgresql://seva:seva_local@127.0.0.1:5433/seva_saathi
+npm run db:migrate && npm run db:seed && npm run ingest
+```
 
-- `POST /api/ask` — grounded answer schema `{ answer, citations, confidence, refused }`
-- `POST /api/chat` — same assistant with translation (Sarvam or demo)
-- `POST /api/voice/transcribe|translate|speak` — Sarvam proxies; audio not stored
-- `POST /api/actions/consent` — mock consent grant (roadmap)
-- `POST /api/actions/prefill` — journey prefill + official deep links (no submission)
+E2E tests use port **4822** and `.next-e2e` so dev on **4821** is untouched.
 
 ### Evaluations
 
 ```bash
-npm test              # unit + routing + Sarvam client mocks
-npm run test:eval     # evals/ask-eval.json regression set
-npm run test:e2e      # Playwright on :4822
+npm test
+npm run test:eval
+npm run test:eval-db   # requires DATABASE_URL
+npm run test:e2e
 ```
 
-## How this differs from a general AI chatbot
+## Sarvam voice
 
-- Answers are built from a **curated corpus** (our directory, journeys, and short official snippets), with **citations** and **refusals** when unsupported.
-- **Life events** are modeled as ordered, cross-ministry plans—not isolated FAQ answers.
-- **Checklists and copy-ready summaries** stay in your browser; we do not submit forms to government systems.
-- **Voice and translation** use Sarvam on the server when configured; demo mode is clearly labelled.
-
-## Sarvam voice and retention
-
-With `SARVAM_API_KEY`, audio is sent to Sarvam for STT/TTS/translate and is **not stored by Seva Saathi**. Sarvam's own retention policies apply to their API—configure retention in your Sarvam account and sign a DPA before production use. See [Sarvam data retention docs](https://docs.sarvam.ai/api/platform/data-retention.md).
+With `SARVAM_API_KEY`, audio is processed server-side and **not stored** by Seva Saathi. Configure retention in your Sarvam account before production.
 
 ## Roadmap
 
-See [ROADMAP.md](ROADMAP.md). Contributing: [CONTRIBUTING.md](CONTRIBUTING.md).
+[ROADMAP.md](ROADMAP.md)

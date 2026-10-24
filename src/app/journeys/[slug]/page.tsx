@@ -6,6 +6,7 @@ import { journeyBySlug, journeys } from "@/data/journeys";
 import { JourneyPlanner } from "@/components/journey-planner";
 import { JourneyStepTracker } from "@/components/journey-step-tracker";
 import { DelegationRoadmap } from "@/components/delegation-roadmap";
+import { Breadcrumbs } from "@/components/breadcrumbs";
 
 export function generateStaticParams() {
   return journeys.map((j) => ({ slug: j.slug }));
@@ -24,9 +25,7 @@ export default async function JourneyPage({ params }: PageProps<"/journeys/[slug
 
   return (
     <div className="mx-auto max-w-4xl px-4 py-10">
-      <nav aria-label="Breadcrumb" className="text-sm text-muted-foreground">
-        <Link className="hover:underline" href="/journeys">Life events</Link> / {journey.title}
-      </nav>
+      <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Life events", href: "/journeys" }, { label: journey.title }]} />
       <h1 className="mt-3 text-4xl font-semibold leading-tight text-primary">{journey.title}</h1>
       <p className="mt-3 max-w-2xl text-lg text-foreground/85">{journey.tagline}</p>
       <p className="mt-2 max-w-2xl text-sm text-muted-foreground"><strong>Who it&apos;s for:</strong> {journey.audience}</p>

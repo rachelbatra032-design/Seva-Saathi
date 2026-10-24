@@ -16,6 +16,16 @@ own terms, copyright, and policies. This project does not claim ownership
 of government works. Users must follow the official site for applications,
 fees, and legal effect.
 
+Design references
+-----------------
+Layout patterns on the home page and header were informed by the public
+America.gov service and by the U.S. Web Design System (USWDS) documentation.
+Seva Saathi re-implements those patterns in original React/Tailwind code.
+See docs/DESIGN-SOURCES.md for licences and what was not copied.
+
+Noto Sans font files are loaded from Google Fonts under the SIL Open Font
+License 1.1. Lucide icons are used under the ISC licence.
+
 Trademarks
 ----------
 Government names, scheme names, logos, and domains belong to their respective

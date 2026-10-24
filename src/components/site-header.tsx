@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { Menu, Sparkles } from "lucide-react";
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { LanguageSelect } from "@/components/language-select";
+import { SiteSearch } from "@/components/site-search";
 import { useLanguage } from "@/components/language-provider";
 import { cn } from "@/lib/utils";
 
@@ -39,10 +40,10 @@ export function SiteHeader() {
   const isActive = (href: string) => pathname === href || pathname.startsWith(href + "/");
 
   return (
-    <header className="sticky top-0 z-40 border-b border-border bg-background/90 backdrop-blur">
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4">
+    <header className="sticky top-0 z-40 border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80">
+      <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3 px-4 py-2 md:h-16 md:flex-nowrap md:py-0">
         <Logo />
-        <nav aria-label="Primary" className="hidden items-center gap-1 md:flex">
+        <nav aria-label="Primary" className="hidden flex-1 items-center justify-center gap-1 md:flex">
           {nav.map((item) => (
             <Link
               key={item.href}
@@ -58,6 +59,7 @@ export function SiteHeader() {
           ))}
         </nav>
         <div className="flex items-center gap-2">
+          <SiteSearch className="hidden xl:block" />
           <LanguageSelect className="hidden lg:inline-flex" />
           <Link
             href="/ask"
@@ -88,7 +90,8 @@ export function SiteHeader() {
                 <Link href="/ask" className="rounded-md px-3 py-2.5 text-base font-medium hover:bg-muted">
                   {t.navAsk} Seva Saathi
                 </Link>
-                <div className="mt-3 border-t pt-4">
+                <div className="mt-3 space-y-4 border-t pt-4">
+                  <SiteSearch className="w-full" />
                   <LanguageSelect />
                 </div>
               </nav>

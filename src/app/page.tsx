@@ -47,6 +47,30 @@ export default function HomePage() {
         </div>
       </section>
 
+      <section aria-labelledby="explainer" className="border-y border-border bg-muted/40">
+        <div className="mx-auto grid max-w-6xl gap-8 px-4 py-12 md:grid-cols-3">
+          <article>
+            <h2 id="explainer" className="sr-only">How Seva Saathi helps</h2>
+            <h3 className="text-lg font-semibold text-primary">One question, many departments</h3>
+            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+              Start with plain language. We map your situation to official portals and ordered life-event plans across departments.
+            </p>
+          </article>
+          <article>
+            <h3 className="text-lg font-semibold text-primary">Official sources only</h3>
+            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+              Every answer shows citations you can verify. We do not guess fees, dates, or eligibility when sources are missing.
+            </p>
+          </article>
+          <article>
+            <h3 className="text-lg font-semibold text-primary">Low bandwidth friendly</h3>
+            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+              Text-first pages, no autoplay video, and optional voice when Sarvam is configured. Checklists stay on your device.
+            </p>
+          </article>
+        </div>
+      </section>
+
       <section aria-labelledby="journeys" className="mx-auto max-w-6xl px-4 pt-14">
         <div className="flex flex-wrap items-end justify-between gap-3">
           <div>

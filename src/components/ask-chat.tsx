@@ -97,7 +97,12 @@ function AssistantMessage({
     <div className="flex gap-3">
       <span className="mt-1 grid size-8 shrink-0 place-items-center rounded-full bg-primary text-primary-foreground" aria-hidden><Bot className="size-4" /></span>
       <div className="min-w-0 flex-1 space-y-4">
-        <div className={cn("rounded-2xl rounded-tl-sm border p-4 sm:p-5", refusal ? "border-saffron/50 bg-saffron-soft" : "border-border bg-card")}>
+        <div
+          className={cn(
+            "rounded-2xl rounded-tl-sm border p-4 sm:p-5",
+            refusal ? "border-saffron/50 bg-saffron-soft" : "border-border border-l-4 border-l-india-green bg-card shadow-sm",
+          )}
+        >
           {refusal && (
             <p className="mb-2 flex items-center gap-2 text-sm font-semibold"><AlertCircle className="size-4 text-saffron" aria-hidden />I can&apos;t answer that from official sources</p>
           )}
@@ -145,8 +150,8 @@ function AssistantMessage({
           </ul>
         )}
 
-        <section aria-label="Sources" className="rounded-xl bg-muted/60 p-4">
-          <h3 className="font-sans text-xs font-semibold uppercase tracking-[0.12em] text-muted-foreground">Official sources</h3>
+        <section aria-label="Sources" className="rounded-xl border border-border bg-muted/50 p-4 shadow-sm">
+          <h3 className="font-sans text-xs font-semibold uppercase tracking-[0.12em] text-primary">Official sources (citations)</h3>
           {reply.citations.length === 0 ? (
             <p className="mt-2 text-sm text-muted-foreground">No source was cited.</p>
           ) : (

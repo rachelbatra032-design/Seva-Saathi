@@ -5,7 +5,7 @@ import { categories } from "@/data/categories";
 export function SiteFooter() {
   return (
     <footer className="mt-16 border-t border-border bg-primary text-primary-foreground">
-      <div className="mx-auto grid max-w-6xl gap-10 px-4 py-12 md:grid-cols-[1.3fr_1fr_1fr]">
+      <div className="mx-auto grid max-w-6xl gap-10 px-4 py-12 md:grid-cols-2 lg:grid-cols-[1.2fr_1fr_1fr_1fr]">
         <div className="space-y-4">
           <div className="inline-block rounded-lg bg-background px-3 py-2 text-foreground">
             <Logo />
@@ -40,6 +40,17 @@ export function SiteFooter() {
                 </Link>
               </li>
             ))}
+          </ul>
+        </nav>
+        <nav aria-label="Official sources" className="text-sm md:col-span-2 lg:col-span-1">
+          <h2 className="mb-3 font-sans text-xs font-semibold uppercase tracking-[0.14em] text-saffron">
+            Official sources we link to
+          </h2>
+          <ul className="grid gap-2 sm:grid-cols-2">
+            <li><a className="text-primary-foreground/85 hover:text-white hover:underline" href="https://www.india.gov.in/" target="_blank" rel="noopener noreferrer">National Portal (india.gov.in)</a></li>
+            <li><a className="text-primary-foreground/85 hover:text-white hover:underline" href="https://www.pib.gov.in/" target="_blank" rel="noopener noreferrer">Press Information Bureau</a></li>
+            <li><a className="text-primary-foreground/85 hover:text-white hover:underline" href="https://www.digilocker.gov.in/" target="_blank" rel="noopener noreferrer">DigiLocker</a></li>
+            <li><a className="text-primary-foreground/85 hover:text-white hover:underline" href="https://www.data.gov.in/" target="_blank" rel="noopener noreferrer">Open Government Data (India)</a></li>
           </ul>
         </nav>
         <nav aria-label="Explore" className="text-sm">
