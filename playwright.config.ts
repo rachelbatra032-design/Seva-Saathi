@@ -10,7 +10,7 @@ export default defineConfig({
   },
   projects: [{ name: "chromium", use: { ...devices["Desktop Chrome"] } }],
   webServer: {
-    command: "npx next start -H 0.0.0.0 -p 4822",
+    command: "npm run build:e2e && npm run start:e2e",
     url: "http://127.0.0.1:4822",
     reuseExistingServer: !process.env.CI,
     timeout: 120_000,
