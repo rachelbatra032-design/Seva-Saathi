@@ -5,6 +5,7 @@ import Link from "next/link";
 import { AlertTriangle, Check, ChevronDown, ClipboardCopy, Clock, FileText, IndianRupee, Lock, RotateCcw, ShieldCheck, UserRound } from "lucide-react";
 import type { Journey, JourneyStep } from "@/lib/types";
 import { PROFILE_LABELS, usePlans, useProfile } from "@/lib/plan-store";
+import { buildJourneySummary } from "@/lib/journey-summary";
 import { OfficialLinkButton } from "@/components/official-link-button";
 import { LinkStatusNote } from "@/components/link-badge";
 import { Badge } from "@/components/ui/badge";
@@ -281,12 +282,18 @@ function ProfileForm({ journey }: { journey: Journey }) {
 }
 
 export function JourneyPlanner({ journey }: { journey: Journey }) {
-  const { reset } = useProgress(journey);
+  const { reset, done } = useProgress(journey);
+  const { profile } = useProfile();
   const titleById = useMemo(() => Object.fromEntries(journey.steps.map((s) => [s.id, s.title])), [journey]);
+  const fullSummary = useMemo(() => buildJourneySummary(journey, profile, done), [journey, profile, done]);
 
   return (
     <div className="space-y-6">
       <ProgressSummary journey={journey} />
+      <div className="flex flex-wrap items-center gap-2 rounded-xl border border-border bg-card p-4">
+        <p className="flex-1 text-sm text-muted-foreground">Copy a checklist with your details and official links for offline use.</p>
+        <CopyButton text={fullSummary} />
+      </div>
       <ProfileForm journey={journey} />
       <ol className="space-y-4" aria-label={`Steps for ${journey.title}`}>
         {journey.steps.map((s, i) => (

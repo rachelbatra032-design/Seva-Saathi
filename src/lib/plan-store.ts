@@ -13,8 +13,8 @@ export type PlanState = {
 type Plans = Record<string, PlanState>;
 export type Profile = Partial<Record<ProfileFieldKey, string>>;
 
-const PLANS_KEY = "indiagov:plans:v1";
-const PROFILE_KEY = "indiagov:profile:v1";
+const PLANS_KEY = "seva-saathi:plans:v1";
+const PROFILE_KEY = "seva-saathi:profile:v1";
 const EMPTY_PLANS: Plans = {};
 const EMPTY_PROFILE: Profile = {};
 
