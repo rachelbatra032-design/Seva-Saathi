@@ -1,0 +1,22 @@
+/**
+ * Spacing and focus tokens informed by USWDS design-token scale (re-implemented values;
+ * not a copy of USWDS distribution files). See docs/DESIGN-SOURCES.md.
+ */
+:root {
+  --space-05: 0.25rem;
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2rem;
+  --space-5: 2.5rem;
+  --space-6: 3rem;
+  --space-7: 4rem;
+  --focus-ring-width: 0.25rem;
+  --focus-ring-offset: 0.125rem;
+  --focus-ring-color: var(--ring);
+}
+
+:focus-visible {
+  outline: var(--focus-ring-width) solid var(--focus-ring-color);
+  outline-offset: var(--focus-ring-offset);
+}

@@ -1,0 +1,36 @@
+name: Wrong or outdated link
+description: Report a broken URL, wrong portal, or outdated step in the directory or a life-event guide
+title: "[link] "
+labels: ["data"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping keep Seva Saathi accurate. We only link to official government sites; we cannot fix the portal itself.
+  - type: input
+    id: url
+    attributes:
+      label: Official URL that is wrong or broken
+      placeholder: https://...
+    validations:
+      required: true
+  - type: input
+    id: page
+    attributes:
+      label: Seva Saathi page (path on our site)
+      placeholder: /services/passport-seva or /journeys/...
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: What is wrong?
+      description: Include what you expected, what you saw, and the correct link if you know it.
+    validations:
+      required: true
+  - type: input
+    id: checked
+    attributes:
+      label: Date you checked (YYYY-MM-DD)
+    validations:
+      required: false

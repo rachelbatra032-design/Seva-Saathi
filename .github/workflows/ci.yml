@@ -1,0 +1,46 @@
+name: CI
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: pgvector/pgvector:pg16
+        env:
+          POSTGRES_USER: seva
+          POSTGRES_PASSWORD: seva_ci
+          POSTGRES_DB: seva_saathi
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U seva -d seva_saathi"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+    env:
+      DATABASE_URL: postgresql://seva:seva_ci@localhost:5432/seva_saathi
+      INGEST_SKIP_PIB: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+      - run: npm ci
+      - run: npm run secret-scan
+      - run: npm run lint
+      - run: npm run typecheck
+      - run: npm test
+      - run: npm run test:eval
+      - run: npm run db:migrate
+      - run: npm run db:seed
+      - run: npm run ingest
+      - run: npm run test:eval-db
+      - run: npx playwright install --with-deps chromium
+      - run: npm run build
+      - run: npm run test:e2e
