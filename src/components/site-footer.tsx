@@ -4,7 +4,7 @@ import { categories } from "@/data/categories";
 
 export function SiteFooter() {
   return (
-    <footer className="mt-16 border-t border-border bg-primary text-primary-foreground">
+    <footer className="mt-16 border-t-4 border-primary bg-[#212529] text-white">
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-12 md:grid-cols-2 lg:grid-cols-[1.2fr_1fr_1fr_1fr]">
         <div className="space-y-4">
           <div className="inline-block rounded-lg bg-background px-3 py-2 text-foreground">
@@ -29,7 +29,7 @@ export function SiteFooter() {
           </p>
         </div>
         <nav aria-label="Topics" className="text-sm">
-          <h2 className="mb-3 font-sans text-xs font-semibold uppercase tracking-[0.14em] text-saffron">
+          <h2 className="mb-3 text-sm font-semibold text-white">
             Browse topics
           </h2>
           <ul className="grid gap-2">
@@ -43,7 +43,7 @@ export function SiteFooter() {
           </ul>
         </nav>
         <nav aria-label="Official sources" className="text-sm md:col-span-2 lg:col-span-1">
-          <h2 className="mb-3 font-sans text-xs font-semibold uppercase tracking-[0.14em] text-saffron">
+          <h2 className="mb-3 text-sm font-semibold text-white">
             Official sources we link to
           </h2>
           <ul className="grid gap-2 sm:grid-cols-2">
@@ -54,7 +54,7 @@ export function SiteFooter() {
           </ul>
         </nav>
         <nav aria-label="Explore" className="text-sm">
-          <h2 className="mb-3 font-sans text-xs font-semibold uppercase tracking-[0.14em] text-saffron">
+          <h2 className="mb-3 text-sm font-semibold text-white">
             Explore
           </h2>
           <ul className="grid gap-2">

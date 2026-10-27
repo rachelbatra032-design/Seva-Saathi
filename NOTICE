@@ -18,10 +18,12 @@ fees, and legal effect.
 
 Design references
 -----------------
-Layout patterns on the home page and header were informed by the public
-America.gov service and by the U.S. Web Design System (USWDS) documentation.
-Seva Saathi re-implements those patterns in original React/Tailwind code.
-See docs/DESIGN-SOURCES.md for licences and what was not copied.
+Colours, type, and component shapes follow UX4G, the design system
+published by the National e-Governance Division (NeGD) under MeitY, and
+the accessibility practices in the Guidelines for Indian Government
+Websites (GIGW). Seva Saathi re-implements those patterns in original
+React and Tailwind code. It does not copy the UX4G CSS bundle, the State
+Emblem of India, or ministry logos. See docs/DESIGN-SOURCES.md.
 
 Noto Sans font files are loaded from Google Fonts under the SIL Open Font
 License 1.1. Lucide icons are used under the ISC licence.

@@ -14,7 +14,7 @@ export default function AboutPage() {
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-12">
-      <p className="text-sm font-semibold uppercase tracking-[0.14em] text-saffron">About</p>
+      <p className="text-sm font-semibold text-primary">About</p>
       <h1 className="mt-2 text-4xl font-semibold text-primary">An unofficial guide that always points to the official source</h1>
       <div className="mt-6 space-y-5 leading-relaxed text-foreground/90">
         <p>Seva Saathi is an independent project. It is not run by, endorsed by or affiliated with the Government of India or any state government. It collects links and plain-language summaries so that you do not have to chase across dozens of websites, and it sends you to the official site for every action.</p>

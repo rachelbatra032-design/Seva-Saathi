@@ -18,9 +18,9 @@ export function OfficialLinkButton({
       target="_blank"
       rel="noopener noreferrer"
       className={cn(
-        "inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2.5 text-sm font-semibold transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
+        "inline-flex items-center justify-center gap-2 rounded-md px-4 py-2.5 text-sm font-semibold transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
         variant === "primary"
-          ? "bg-saffron text-[oklch(0.2_0.03_265)] hover:brightness-95"
+          ? "bg-primary text-primary-foreground hover:bg-[#0b5ed7]"
           : "border border-input bg-background hover:bg-muted",
         className,
       )}

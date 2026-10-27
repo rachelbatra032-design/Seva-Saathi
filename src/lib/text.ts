@@ -98,3 +98,15 @@ export function tokenize(text: string, expand = true): string[] {
   }
   return out;
 }
+
+/** One group per meaningful word. Synonyms are alternatives inside the group, not extra required words. */
+export function queryConcepts(text: string): string[][] {
+  const groups: string[][] = [];
+  for (const raw of normalize(text).split(" ")) {
+    if (!raw || STOPWORDS.has(raw)) continue;
+    const w = stem(raw);
+    const syns = (SYNONYMS[raw] ?? SYNONYMS[w] ?? []).map(stem);
+    groups.push([...new Set([w, ...syns])]);
+  }
+  return groups;
+}

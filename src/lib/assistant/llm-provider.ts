@@ -1,5 +1,12 @@
 import type { AssistantProvider, GenerateInput, GenerateOutput } from "@/lib/assistant/types";
 
+/**
+ * OpenAI-style chat completions composer.
+ * After hackathon acceptance, point this at Meta Model API (Muse Spark or Muse Wonder)
+ * with LLM_API_KEY, LLM_BASE_URL (the API origin that serves /chat/completions), and LLM_MODEL.
+ * answer.ts still refuses when the model is not grounded in the retrieved official passages.
+ */
+
 const SYSTEM_PROMPT = `You are the answering step of Seva Saathi, an unofficial aggregator of Indian government information.
 Rules you must follow:
 1. Use ONLY the numbered passages provided. Do not use any other knowledge about Indian government rules, fees, deadlines or links.

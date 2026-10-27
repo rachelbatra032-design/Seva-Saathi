@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 export default function UpdatesPage() {
   return (
     <div className="mx-auto max-w-4xl px-4 py-12">
-      <p className="text-sm font-semibold uppercase tracking-[0.14em] text-saffron">Latest updates</p>
+      <p className="text-sm font-semibold text-primary">Latest updates</p>
       <h1 className="mt-2 text-4xl font-semibold text-primary">Announcements from official sources</h1>
       <p className="mt-3 max-w-2xl text-muted-foreground">
         Headlines come straight from the Press Information Bureau, the Government of India&apos;s

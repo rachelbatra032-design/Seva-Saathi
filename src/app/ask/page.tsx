@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 export default function AskPage() {
   return (
     <div className="mx-auto max-w-5xl px-4 py-10">
-      <p className="text-sm font-semibold uppercase tracking-[0.14em] text-saffron">Ask Seva Saathi</p>
+      <p className="text-sm font-semibold text-primary">Ask Seva Saathi</p>
       <h1 className="mt-2 text-4xl font-semibold text-primary">Tell us what happened. We&apos;ll map the steps.</h1>
       <p className="mx-auto mt-3 max-w-2xl text-muted-foreground">
         Answers come only from official government sources that we have on file, and every answer shows its links. When we don&apos;t know, we say so.
