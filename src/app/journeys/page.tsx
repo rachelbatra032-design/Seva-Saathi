@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 export default function JourneysPage() {
   return (
     <div className="mx-auto max-w-5xl px-4 py-12">
-      <p className="text-sm font-semibold uppercase tracking-[0.14em] text-saffron">Life events</p>
+      <p className="text-sm font-semibold text-primary">Life events</p>
       <h1 className="mt-2 text-4xl font-semibold text-primary">One plan for things that touch many offices</h1>
       <p className="mt-3 max-w-2xl text-muted-foreground">
         Changing your name, losing a document or moving house means dealing with several agencies, in a sensible order.

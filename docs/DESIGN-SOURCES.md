@@ -1,46 +1,52 @@
 # Design sources and licensing
 
-This document records what we checked before borrowing layout patterns from [America.gov](https://www.america.gov/) and the [U.S. Web Design System (USWDS)](https://designsystem.digital.gov/). **Access date for all URLs below: 24 October 2026.**
+The visual source for Seva Saathi is **UX4G** (User Experience for Government), the design system published by the National e-Governance Division (NeGD) under the Ministry of Electronics and Information Technology for the Digital India programme. The accessibility and page-structure rules those components are built to meet are the **Guidelines for Indian Government Websites and apps (GIGW)**.
 
-Seva Saathi is **not** a U.S. government site. We do not use U.S. government seals, agency logos, or America.gov branding.
+**Access date: 27 October 2026.**
 
-## America.gov (GSA)
+Seva Saathi is an **unofficial** guide. It is not a Government of India website.
 
-| Page | URL | What it says (summary) |
+## UX4G
+
+| Resource | URL | What we used |
 | --- | --- | --- |
-| Terms of use | https://america.gov/terms (last updated 8 September 2026) | Operated by GSA. **Most content is U.S. government work in the public domain** and may be reused freely. **Exceptions:** third-party logos, trademarks, photographs, and **agency seals**; do not imply endorsement. |
-| Privacy policy | https://www.america.gov/privacy-policy/ (last updated 20 October 2026) | Describes chat, attachments, voice, cookies/local storage, analytics, and vendors. Does not state a separate copyright policy beyond being a GSA service. |
-| About | https://america.gov/about | Describes National Design Studio and GSA partnership; **does not name USWDS** as the implementation stack. |
-| FAQ | https://america.gov/faq | Describes National Design Studio; **no USWDS mention**. |
+| Design system | https://ux4g.gov.in | Colour, type, buttons, cards, navbar, search, alerts, breadcrumbs, forms, and the life-event stepper |
+| Component docs | https://doc.ux4g.gov.in | Published primary blue `#0d6efd`, the grey scale, success `#198754`, danger `#dc3545`, warning `#ffc107`, radius `0.375rem`, and the focus treatment |
+| Colour page | https://doc.ux4g.gov.in/utilities/colors.php | `$primary: $blue` (`#0d6efd`) |
+| NeGD project page | https://negd.gov.in/our_projects/ux4g/ | Confirms UX4G is the government design system |
 
-**17 U.S.C. § 105:** U.S. federal works prepared by officers/employees in official duties are generally **not subject to domestic copyright** ([17 U.S.C. § 105](https://uscode.house.gov/us/usc/119-118/t17/s105/)). That does **not** cover third-party material on federal sites ([USA.gov guidance](https://www.usa.gov/government-copyright)).
+The public docs still describe the Bootstrap-style release. We read those published values and re-implemented them in our own React and Tailwind. We do **not** ship the UX4G CSS/JS bundle beside Tailwind.
 
-**Is America.gov built on USWDS?** **Not confirmed from public pages we read.** America.gov is not listed in the USWDS [showcase](https://designsystem.digital.gov/documentation/showcase/) (checked 24 October 2026). Its marketing copy points to a **custom National Design Studio interface**. We therefore treat America.gov’s **page copy, imagery, animations, and branding** as **reference only** and **re-implement** patterns in our own React/Tailwind code.
+The official GitHub repository ([ux4g/ux4g-design-system-v1](https://github.com/ux4g/ux4g-design-system-v1)) has no `LICENSE` file. Its README says the code and documentation are copyright 2023 and that the docs are released under Creative Commons. Because that package licence is not stated as a grant we can rely on, this repo does not copy the compiled UX4G CSS or JavaScript. Colours and component shapes are re-implemented here and credited to UX4G.
 
-**Fonts / images on America.gov:** We did not obtain a separate America.gov “copyright” or asset licence page beyond the terms above. Hero illustrations, agency badges, fingerprint animation, and social preview images (`america.gov/images/...`) are **not** copied into this repo.
+## GIGW
 
-## U.S. Web Design System (USWDS)
-
-| Resource | URL | Licence (summary) |
+| Resource | URL | What we followed |
 | --- | --- | --- |
-| USWDS repository | https://github.com/uswds/uswds (`LICENSE.md`, develop branch) | **GSA-authored software modifications: CC0 worldwide** + **public domain in the U.S.** Bundled fonts/icons have **separate licences** (SIL OFL 1.1 for Source Sans Pro, Merriweather, Public Sans; Apache 2.0 for Roboto Mono and Material-derived icons; MIT for normalize-derived files). **GSA trademarks are reserved.** |
+| Introduction | https://guidelines.india.gov.in/introduction/ | GIGW is the government website rulebook |
+| Quick tips | https://guidelines.india.gov.in/quick-tips/ | One clear heading structure, a skip link, keyboard use, contrast, and plain language |
 
-We **do not** ship the full USWDS npm package or USWDS sprite assets in v1. We **re-implemented** spacing, focus, and layout patterns in Tailwind/CSS, informed by USWDS documentation. If we later import USWDS components or tokens directly, we will list them in [NOTICE](../NOTICE) and comply with bundled font/icon licences.
+GIGW also tells a **central government** site to display the State Emblem of India so visitors can see that the site is official. That rule does not apply to Seva Saathi, and the State Emblem of India (Prohibition of Improper Use) Act, 2005 restricts the emblem. This site does not use:
 
-## Seva Saathi implementation choices
+- the State Emblem of India
+- a line that says the site belongs to a ministry
+- Digital India, MeitY, or department logos
+
+The header and footer say the site is unofficial and link to [india.gov.in](https://www.india.gov.in/).
+
+## What the interface uses
 
 | Pattern | Approach |
 | --- | --- |
-| Editorial hero + large question field | **Re-implemented** (`HeroForms`, home hero); inspired by America.gov, our colours and copy |
-| Use-case cards (life events) | **Re-implemented** (`HomeUseCases`); large editorial cards with visitor-voice prompts |
-| Topic hub cards, explainer columns | **Re-implemented** (`TopicHubCard`, home sections) |
-| Header search + language switcher | **Re-implemented** (`SiteHeader`, `SiteSearch`, `LanguageSelect`) |
-| Footer disclaimer + official source links | **Re-implemented** (`SiteFooter`) |
-| Answer cards + visible citations | **Re-implemented** (`AskChat` / `AssistantMessage`) |
-| Breadcrumbs, skip link, focus rings | **Re-implemented** (`Breadcrumbs`, layout skip link, `--focus-ring` tokens) |
-| Typography for Indic scripts | **Direct use:** [Noto Sans](https://fonts.google.com/noto/specimen/Noto+Sans) family via `next/font/google` (**SIL Open Font License 1.1**) |
-| Icons | **Lucide** (ISC licence), not USWDS Material icons |
+| Colour, type, radius, focus | Re-implemented from the published UX4G tokens in `src/app/globals.css` and `src/styles/design-tokens.css` |
+| Header, search, buttons, cards | Re-implemented in React (`SiteHeader`, `SiteSearch`, `Button`, `ServiceCard`) |
+| Warning alert | Unofficial banner uses the UX4G warning colours (`#fff3cd` / `#664d03`) |
+| Breadcrumbs and skip link | `Breadcrumbs`, layout skip link |
+| Life-event stepper | `JourneyStepTracker`, using primary and success colours |
+| Question box and directory | Home page: plain-language question, most-used services, topic groups, life events |
+| Typography for Indic scripts | [Noto Sans](https://fonts.google.com/noto/specimen/Noto+Sans) via `next/font/google` (SIL Open Font License 1.1). UX4G’s font stack includes Noto Sans. |
+| Icons | Lucide (ISC licence) |
 
 ## India government content
 
-Directory URLs, short summaries, and journey text remain **third-party government material** (not Apache-2.0). See [NOTICE](../NOTICE) and [README](../README.md).
+Directory URLs, short summaries, and journey text remain third-party government material (not Apache-2.0). See [NOTICE](../NOTICE) and [README](../README.md).

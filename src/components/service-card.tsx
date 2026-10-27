@@ -8,7 +8,7 @@ import { CategoryIcon } from "@/components/category-icon";
 export function ServiceCard({ service }: { service: Service }) {
   const category = categoryBySlug[service.category];
   return (
-    <article className="group relative flex h-full flex-col rounded-xl border border-border bg-card p-5 transition hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-md focus-within:ring-2 focus-within:ring-ring">
+    <article className="group relative flex h-full flex-col rounded-md border border-border bg-card p-5 shadow-sm transition hover:border-primary focus-within:ring-2 focus-within:ring-ring">
       <div className="mb-3 flex items-center justify-between gap-2">
         <span className="grid size-9 place-items-center rounded-lg bg-secondary text-primary">
           <CategoryIcon name={category?.icon ?? "landmark"} className="size-[18px]" />

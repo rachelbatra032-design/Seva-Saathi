@@ -13,7 +13,7 @@ export default function TopicsPage() {
   const counts = categoryCounts();
   return (
     <div className="mx-auto max-w-6xl px-4 py-12">
-      <p className="text-sm font-semibold uppercase tracking-[0.14em] text-saffron">Topics</p>
+      <p className="text-sm font-semibold text-primary">Topics</p>
       <h1 className="mt-2 text-4xl font-semibold text-primary">Browse by topic</h1>
       <p className="mt-3 max-w-2xl text-muted-foreground">Start from what you want to get done. Each topic hub gathers the official sites for it in one place.</p>
       <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">

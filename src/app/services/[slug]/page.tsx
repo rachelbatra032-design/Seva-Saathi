@@ -8,19 +8,18 @@ import { Badge } from "@/components/ui/badge";
 import { OfficialLinkButton } from "@/components/official-link-button";
 import { LinkStatusNote } from "@/components/link-badge";
 import { ServiceCard } from "@/components/service-card";
-import type { SlugPageParams } from "@/types/app-router";
 
 export function generateStaticParams() {
   return allServices.map((s) => ({ slug: s.slug }));
 }
 
-export async function generateMetadata({ params }: SlugPageParams): Promise<Metadata> {
+export async function generateMetadata({ params }: PageProps<"/services/[slug]">): Promise<Metadata> {
   const { slug } = await params;
   const s = getService(slug);
   return s ? { title: s.title, description: s.summary } : { title: "Service not found" };
 }
 
-export default async function ServicePage({ params }: SlugPageParams) {
+export default async function ServicePage({ params }: PageProps<"/services/[slug]">) {
   const { slug } = await params;
   const service = getService(slug);
   if (!service) notFound();
@@ -58,10 +57,10 @@ export default async function ServicePage({ params }: SlugPageParams) {
             </Badge>
             <Badge variant="outline">{category?.name}</Badge>
           </div>
-          <h1 className="mt-3 text-4xl font-semibold leading-tight text-primary">{service.title}</h1>
+          <h1 className="mt-3 text-4xl font-semibold leading-tight text-foreground">{service.title}</h1>
           <p className="mt-4 max-w-2xl text-lg leading-relaxed text-foreground/85">{service.summary}</p>
 
-          <section aria-labelledby="official" className="mt-8 rounded-2xl border-2 border-saffron/50 bg-saffron-soft p-5 sm:p-6">
+          <section aria-labelledby="official" className="mt-8 rounded-md border border-primary bg-accent p-5 sm:p-6">
             <h2 id="official" className="font-sans text-sm font-semibold uppercase tracking-[0.12em] text-foreground/70">
               Go to the official site
             </h2>
@@ -79,7 +78,7 @@ export default async function ServicePage({ params }: SlugPageParams) {
           <div className="mt-10 grid gap-8 md:grid-cols-2">
             <section aria-labelledby="who">
               <h2 id="who" className="flex items-center gap-2 text-2xl font-semibold text-primary">
-                <Users className="size-5 text-saffron" aria-hidden /> Who it&apos;s for
+                <Users className="size-5 text-primary" aria-hidden /> Who it&apos;s for
               </h2>
               <p className="mt-3 leading-relaxed text-foreground/85">
                 {service.whoFor ?? `Citizens and residents who need to use the services of ${service.ministry}.`}
@@ -87,7 +86,7 @@ export default async function ServicePage({ params }: SlugPageParams) {
             </section>
             <section aria-labelledby="docs">
               <h2 id="docs" className="flex items-center gap-2 text-2xl font-semibold text-primary">
-                <FileText className="size-5 text-saffron" aria-hidden /> Documents commonly needed
+                <FileText className="size-5 text-primary" aria-hidden /> Documents commonly needed
               </h2>
               {service.documents && service.documents.length > 0 ? (
                 <ul className="mt-3 list-disc space-y-1.5 pl-5 text-foreground/85">
@@ -103,7 +102,7 @@ export default async function ServicePage({ params }: SlugPageParams) {
 
           <section aria-labelledby="how" className="mt-10">
             <h2 id="how" className="flex items-center gap-2 text-2xl font-semibold text-primary">
-              <ListChecks className="size-5 text-saffron" aria-hidden /> How to apply
+              <ListChecks className="size-5 text-primary" aria-hidden /> How to apply
             </h2>
             <ol className="mt-4 space-y-3">
               {howTo.map((step, i) => (

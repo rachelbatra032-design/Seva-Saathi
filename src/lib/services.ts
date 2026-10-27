@@ -5,7 +5,7 @@ import { stateByCode } from "@/data/states";
 import linkStatusJson from "@/data/generated/link-status.json";
 import snippetsJson from "@/data/generated/official-snippets.json";
 import type { CategorySlug, LinkCheck, OfficialSnippet, Service } from "@/lib/types";
-import { tokenize } from "@/lib/text";
+import { queryConcepts, tokenize } from "@/lib/text";
 
 export const allServices: Service[] = [...centralServices, ...stateServices];
 
@@ -93,7 +93,7 @@ const index: Indexed[] = allServices.map((service) => {
 
 export function searchServices(filters: ServiceFilters): Service[] {
   const q = filters.query.trim().toLowerCase();
-  const tokens = [...new Set(tokenize(q))];
+  const concepts = queryConcepts(q);
   const scored: { service: Service; score: number }[] = [];
 
   for (const item of index) {
@@ -102,35 +102,28 @@ export function searchServices(filters: ServiceFilters): Service[] {
     if (filters.level !== "all" && service.level !== filters.level) continue;
     if (filters.state !== "all" && service.state !== filters.state) continue;
 
-    if (!tokens.length) {
+    if (!concepts.length) {
       scored.push({ service, score: 0 });
       continue;
     }
     let score = 0;
     let matched = 0;
-    for (const t of tokens) {
+    for (const group of concepts) {
       let best = 0;
       for (const field of item.fields) {
-        if (field.tokens.has(t)) best = Math.max(best, field.weight);
-        else if (t.length >= 3) {
-          for (const ft of field.tokens) {
-            if (ft.startsWith(t)) {
-              best = Math.max(best, field.weight * 0.6);
-              break;
-            }
-          }
+        for (const t of group) {
+          if (field.tokens.has(t)) best = Math.max(best, field.weight);
         }
       }
       if (best > 0) matched++;
       score += best;
     }
+    if (matched !== concepts.length) continue;
     if (q.length >= 3 && item.haystack.includes(q)) score += 4;
     if (item.service.title.toLowerCase().startsWith(q)) score += 4;
-    if (matched === 0) continue;
-    if (tokens.length > 1 && matched < Math.ceil(tokens.length / 2)) continue;
     scored.push({ service, score: score + matched });
   }
 
-  if (!tokens.length) return scored.map((s) => s.service);
+  if (!concepts.length) return scored.map((s) => s.service);
   return scored.sort((a, b) => b.score - a.score).map((s) => s.service);
 }

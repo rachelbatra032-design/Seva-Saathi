@@ -27,7 +27,7 @@ function DirectorySkeleton() {
 export default function ServicesPage() {
   return (
     <div className="mx-auto max-w-6xl px-4 py-12">
-      <p className="text-sm font-semibold uppercase tracking-[0.14em] text-saffron">Services directory</p>
+      <p className="text-sm font-semibold text-primary">Services directory</p>
       <h1 className="mt-2 text-4xl font-semibold text-primary">Find the right official site, fast</h1>
       <p className="mt-3 max-w-2xl text-muted-foreground">
         A curated list of government services with plain-language descriptions. Filter by topic,

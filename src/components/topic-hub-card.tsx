@@ -9,7 +9,7 @@ type Props = {
   icon?: ReactNode;
 };
 
-/** Editorial topic hub card (layout pattern re-implemented; not USWDS markup). */
+/** Topic card shaped like a UX4G card. Markup is ours, not the UX4G CSS bundle. */
 export function TopicHubCard({ href, title, description, meta, icon }: Props) {
   return (
     <Link
